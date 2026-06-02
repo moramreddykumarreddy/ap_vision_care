@@ -61,8 +61,17 @@ final appRouterProvider = Provider<GoRouter>((ref) {
     routes: [
       GoRoute(path: '/', redirect: (_, __) => '/role-selection'),
       GoRoute(path: '/splash', builder: (_, __) => const SplashScreen()),
-      GoRoute(path: '/login', redirect: (_, __) => '/role-selection'),
-      GoRoute(path: '/otp', redirect: (_, __) => '/role-selection'),
+      GoRoute(
+        path: '/login',
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: '/otp',
+        builder: (context, state) {
+          final mobile = state.uri.queryParameters['mobile'] ?? '';
+          return OtpScreen(mobile: mobile);
+        },
+      ),
       GoRoute(path: '/role-selection', builder: (_, __) => const RoleSelectionScreen()),
 
       // ── Patient ────────────────────────────────────────────────────

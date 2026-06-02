@@ -13,7 +13,7 @@ class DecisionSupportDashboard extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Decision Support'),
-        backgroundColor: AppColors.gold,
+        backgroundColor: AppColors.primaryBlue,
         leading: const AppBarBackButton(),
       ),
       body: SingleChildScrollView(

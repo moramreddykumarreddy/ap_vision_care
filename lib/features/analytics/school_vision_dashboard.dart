@@ -21,7 +21,7 @@ class SchoolVisionDashboard extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('School Vision Dashboard'),
-        backgroundColor: AppColors.screeningTeamColor,
+        backgroundColor: AppColors.primaryBlue,
         leading: const AppBarBackButton(),
       ),
       body: SingleChildScrollView(
@@ -41,7 +41,7 @@ class SchoolVisionDashboard extends ConsumerWidget {
                   title: 'Students Screened',
                   value: '${schoolData.totalStudentsScreened}',
                   icon: Icons.school_rounded,
-                  color: AppColors.screeningTeamColor,
+                  color: AppColors.primaryBlue,
                 ),
                 StatCard(
                   title: 'Need Glasses',
@@ -77,7 +77,7 @@ class SchoolVisionDashboard extends ConsumerWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('Spectacle Delivery Progress', style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700)),
-                        Text('${(deliveryPct * 100).round()}%', style: TextStyle(color: AppColors.screeningTeamColor, fontWeight: FontWeight.w800)),
+                        Text('${(deliveryPct * 100).round()}%', style: const TextStyle(color: AppColors.primaryBlue, fontWeight: FontWeight.w800)),
                       ],
                     ),
                     const SizedBox(height: 12),
@@ -85,7 +85,7 @@ class SchoolVisionDashboard extends ConsumerWidget {
                       lineHeight: 12,
                       percent: deliveryPct,
                       backgroundColor: AppColors.grey200,
-                      progressColor: AppColors.screeningTeamColor,
+                      progressColor: AppColors.primaryBlue,
                       barRadius: const Radius.circular(6),
                       padding: EdgeInsets.zero,
                     ),
@@ -117,10 +117,10 @@ class SchoolVisionDashboard extends ConsumerWidget {
                           Container(
                             width: 30, height: 30,
                             decoration: BoxDecoration(
-                              color: AppColors.screeningTeamColor.withOpacity(0.1),
+                              color: AppColors.primaryBlue.withOpacity(0.1),
                               shape: BoxShape.circle,
                             ),
-                            child: Center(child: Text('${e.key + 1}', style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13, color: AppColors.screeningTeamColor))),
+                            child: Center(child: Text('${e.key + 1}', style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13, color: AppColors.primaryBlue))),
                           ),
                           const SizedBox(width: 10),
                           Expanded(

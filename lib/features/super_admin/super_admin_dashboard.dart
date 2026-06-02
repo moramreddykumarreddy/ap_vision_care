@@ -19,6 +19,7 @@ class SuperAdminDashboard extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: const AppBarBackButton(),
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -32,7 +33,6 @@ class SuperAdminDashboard extends ConsumerWidget {
           IconButton(icon: const Icon(Icons.person_rounded), onPressed: () {}),
         ],
       ),
-      drawer: MediaQuery.of(context).size.width <= 768 ? _AdminDrawer() : null,
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -240,97 +240,7 @@ class _AnalyticsQuickLink extends StatelessWidget {
   }
 }
 
-class _AdminDrawer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    final location = GoRouterState.of(context).uri.toString();
 
-    final menuItems = [
-      _DrawerItem(Icons.dashboard_rounded, 'Dashboard', '/admin/dashboard'),
-      _DrawerItem(Icons.bar_chart_rounded, 'State Analytics', '/admin/analytics/state'),
-      _DrawerItem(Icons.map_rounded, 'District View', '/admin/analytics/district'),
-      _DrawerItem(Icons.auto_awesome_rounded, 'AI Analytics', '/admin/analytics/ai'),
-      _DrawerItem(Icons.restaurant_rounded, 'Nutrition', '/admin/analytics/nutrition'),
-      _DrawerItem(Icons.school_rounded, 'School Vision', '/admin/analytics/school'),
-      _DrawerItem(Icons.elderly_rounded, 'Elderly Care', '/admin/analytics/elderly'),
-      _DrawerItem(Icons.gavel_rounded, 'Decision Support', '/admin/analytics/decision'),
-      _DrawerItem(Icons.timeline_rounded, 'EMR', '/admin/emr'),
-      _DrawerItem(Icons.folder_open_rounded, 'Documents', '/admin/documents'),
-      _DrawerItem(Icons.local_hospital_rounded, 'Referrals', '/admin/referrals'),
-      _DrawerItem(Icons.summarize_rounded, 'Reports', '/admin/reports'),
-      _DrawerItem(Icons.settings_rounded, 'Settings', '/admin/settings'),
-    ];
-
-    return Drawer(
-      backgroundColor: AppColors.darkBackground,
-      child: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: Row(
-                children: [
-                  Container(
-                    width: 42, height: 42,
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryBlue.withOpacity(0.2),
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(Icons.visibility, color: Colors.white, size: 22),
-                  ),
-                  const SizedBox(width: 12),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('AP Vision Program', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 14)),
-                      Text('Super Admin', style: TextStyle(color: Colors.white54, fontSize: 11)),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            const Divider(color: AppColors.darkBorder),
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                itemCount: menuItems.length,
-                itemBuilder: (context, index) {
-                  final item = menuItems[index];
-                  final isSelected = location.startsWith(item.path);
-                  return ListTile(
-                    leading: Icon(item.icon, color: isSelected ? AppColors.accent : Colors.white54, size: 20),
-                    title: Text(
-                      item.label,
-                      style: TextStyle(
-                        color: isSelected ? Colors.white : Colors.white54,
-                        fontSize: 13,
-                        fontWeight: isSelected ? FontWeight.w700 : FontWeight.w400,
-                      ),
-                    ),
-                    selected: isSelected,
-                    selectedTileColor: AppColors.accent.withOpacity(0.12),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                    onTap: () {
-                      Navigator.pop(context);
-                      context.go(item.path);
-                    },
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class _DrawerItem {
-  final IconData icon;
-  final String label;
-  final String path;
-  const _DrawerItem(this.icon, this.label, this.path);
-}
 
 extension IndexedMap2<T> on Iterable<T> {
   Iterable<R> mapIndexed<R>(R Function(int index, T element) f) {

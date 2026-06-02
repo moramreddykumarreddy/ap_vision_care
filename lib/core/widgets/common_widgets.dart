@@ -1,6 +1,8 @@
 // lib/core/widgets/section_header.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../../providers/app_providers.dart';
 
 class SectionHeader extends StatelessWidget {
   final String title;
@@ -374,14 +376,31 @@ class ApLogoWidget extends StatelessWidget {
   }
 }
 
-class AppBarBackButton extends StatelessWidget {
+class AppBarBackButton extends ConsumerWidget {
   final Color? color;
   final VoidCallback? onPressed;
 
   const AppBarBackButton({super.key, this.color, this.onPressed});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final path = GoRouterState.of(context).uri.path;
+    final isMobile = MediaQuery.of(context).size.width <= 768;
+    final isAdmin = path.startsWith('/admin/');
+
+    if (isAdmin && isMobile) {
+      return IconButton(
+        icon: Icon(Icons.menu, color: color ?? Colors.white),
+        onPressed: () {
+          ref.read(adminScaffoldKeyProvider).currentState?.openDrawer();
+        },
+      );
+    }
+
+    if (isAdmin && path == '/admin/dashboard') {
+      return const SizedBox.shrink();
+    }
+
     return IconButton(
       icon: Icon(Icons.arrow_back, color: color ?? Colors.white),
       onPressed: onPressed ?? () {
@@ -389,7 +408,6 @@ class AppBarBackButton extends StatelessWidget {
           Navigator.of(context).pop();
         } else {
           try {
-            final path = GoRouterState.of(context).uri.path;
             if (path.startsWith('/admin/')) {
               context.go('/admin/dashboard');
             } else if (path.startsWith('/nodal/')) {

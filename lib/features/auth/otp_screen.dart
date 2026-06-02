@@ -45,7 +45,21 @@ class _OtpScreenState extends State<OtpScreen> {
       setState(() => _isVerifying = true);
       await Future.delayed(const Duration(seconds: 1));
       setState(() => _isVerifying = false);
-      if (mounted) context.go('/role-selection');
+      if (mounted) {
+        final state = GoRouterState.of(context);
+        final route = state.uri.queryParameters['route'] ?? '';
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('OTP Verified successfully! Logging in...'),
+            backgroundColor: Color(0xFF00897B),
+            behavior: SnackBarBehavior.floating,
+            duration: Duration(seconds: 1),
+          ),
+        );
+
+        context.go(route.isNotEmpty ? route : '/role-selection');
+      }
     }
   }
 
@@ -223,6 +237,13 @@ class _OtpScreenState extends State<OtpScreen> {
                                   onPressed: () {
                                     setState(() => _resendSeconds = 30);
                                     _startTimer();
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text('New OTP sent successfully.'),
+                                        behavior: SnackBarBehavior.floating,
+                                        duration: Duration(seconds: 1),
+                                      ),
+                                    );
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,

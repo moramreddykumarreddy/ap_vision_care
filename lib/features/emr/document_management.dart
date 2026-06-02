@@ -539,6 +539,8 @@ class _DocumentManagementScreenState extends State<DocumentManagementScreen> {
                           SnackBar(
                             content: Text('Secure access link generated for ${doc['patient']}'),
                             backgroundColor: AppColors.success,
+                            behavior: SnackBarBehavior.floating,
+                            duration: const Duration(seconds: 1),
                           ),
                         );
                       },
@@ -559,6 +561,8 @@ class _DocumentManagementScreenState extends State<DocumentManagementScreen> {
                           const SnackBar(
                             content: Text('Downloading document vault bundle...'),
                             backgroundColor: AppColors.primaryBlue,
+                            behavior: SnackBarBehavior.floating,
+                            duration: Duration(seconds: 1),
                           ),
                         );
                       },
@@ -647,6 +651,8 @@ class _DocumentManagementScreenState extends State<DocumentManagementScreen> {
           SnackBar(
             content: Text('"${result['title']}" uploaded and signed successfully!'),
             backgroundColor: AppColors.success,
+            behavior: SnackBarBehavior.floating,
+            duration: const Duration(seconds: 1),
           ),
         );
       }

@@ -142,3 +142,29 @@ final analyticsProvider = Provider((ref) => DummyData.stateAnalytics);
 final districtsProvider = Provider((ref) => DummyData.districts);
 final aiRiskProvider = Provider((ref) => DummyData.aiRiskData);
 final schoolVisionProvider = Provider((ref) => DummyData.schoolVisionData);
+
+// ─── Font & Typography Providers ──────────────────────────────────────────
+final fontFamilyProvider = StateProvider<String>((ref) => 'Outfit');
+final fontSizeProvider = StateProvider<String>((ref) => 'Medium');
+
+final fontSizeScaleProvider = Provider<double>((ref) {
+  final size = ref.watch(fontSizeProvider);
+  switch (size) {
+    case 'Small':
+      return 0.85;
+    case 'Large':
+      return 1.15;
+    case 'Extra Large':
+      return 1.30;
+    case 'Medium':
+    default:
+      return 1.0;
+  }
+});
+
+// ─── Global Admin Scaffold Key Provider ──────────────────────────────────
+final adminScaffoldKeyProvider = Provider<GlobalKey<ScaffoldState>>((ref) {
+  return GlobalKey<ScaffoldState>();
+});
+
+

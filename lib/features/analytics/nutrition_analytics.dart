@@ -14,7 +14,7 @@ class NutritionAnalytics extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Nutrition Analytics'),
-        backgroundColor: AppColors.warning,
+        backgroundColor: AppColors.primaryBlue,
         leading: const AppBarBackButton(),
       ),
       body: SingleChildScrollView(

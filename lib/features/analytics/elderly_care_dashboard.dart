@@ -15,7 +15,7 @@ class ElderlyCare extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Elderly Care Dashboard'),
-        backgroundColor: const Color(0xFF6D4C41),
+        backgroundColor: AppColors.primaryBlue,
         leading: const AppBarBackButton(),
       ),
       body: SingleChildScrollView(
@@ -31,7 +31,7 @@ class ElderlyCare extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               childAspectRatio: 1.4,
               children: [
-                StatCard(title: 'Elderly Registered\n(60+ years)', value: '23,450', icon: Icons.elderly_rounded, color: const Color(0xFF6D4C41)),
+                StatCard(title: 'Elderly Registered\n(60+ years)', value: '23,450', icon: Icons.elderly_rounded, color: AppColors.primaryBlue),
                 StatCard(title: 'Blind Registered', value: '1,280', icon: Icons.visibility_off_rounded, color: AppColors.error),
                 StatCard(title: 'Cataract Cases', value: '8,940', icon: Icons.wb_cloudy_rounded, color: AppColors.warning),
                 StatCard(title: 'Home Care Given', value: '3,210', icon: Icons.home_rounded, color: AppColors.success),
@@ -72,7 +72,7 @@ class ElderlyCare extends StatelessWidget {
                         BarChartGroupData(x: e.key, barRods: [
                           BarChartRodData(
                             toY: e.value,
-                            color: const Color(0xFF6D4C41),
+                            color: AppColors.primaryBlue,
                             width: 24,
                             borderRadius: const BorderRadius.only(topLeft: Radius.circular(4), topRight: Radius.circular(4)),
                           ),

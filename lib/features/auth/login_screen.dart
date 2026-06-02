@@ -22,7 +22,21 @@ class _LoginScreenState extends State<LoginScreen> {
       await Future.delayed(const Duration(seconds: 1));
       setState(() => _isLoading = false);
       if (mounted) {
-        context.go('/otp?mobile=${_mobileController.text}');
+        final state = GoRouterState.of(context);
+        final role = state.uri.queryParameters['role'] ?? '';
+        final route = state.uri.queryParameters['route'] ?? '';
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('OTP sent successfully to +91 ${_mobileController.text}'),
+            backgroundColor: const Color(0xFF1A3A6B),
+            behavior: SnackBarBehavior.floating,
+            duration: const Duration(seconds: 1),
+          ),
+        );
+
+        final encodedRoute = Uri.encodeComponent(route);
+        context.go('/otp?mobile=${_mobileController.text}&role=$role&route=$encodedRoute');
       }
     }
   }

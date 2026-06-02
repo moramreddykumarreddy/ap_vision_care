@@ -4,98 +4,116 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class AppTheme {
-  static TextTheme _buildTextTheme(Color baseColor) {
-    return GoogleFonts.outfitTextTheme(
-      TextTheme(
-        displayLarge: TextStyle(
-          fontSize: 57,
-          fontWeight: FontWeight.w400,
-          color: baseColor,
-          letterSpacing: -0.25,
-        ),
-        displayMedium: TextStyle(
-          fontSize: 45,
-          fontWeight: FontWeight.w400,
-          color: baseColor,
-        ),
-        displaySmall: TextStyle(
-          fontSize: 36,
-          fontWeight: FontWeight.w400,
-          color: baseColor,
-        ),
-        headlineLarge: TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.w700,
-          color: baseColor,
-        ),
-        headlineMedium: TextStyle(
-          fontSize: 28,
-          fontWeight: FontWeight.w600,
-          color: baseColor,
-        ),
-        headlineSmall: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.w600,
-          color: baseColor,
-        ),
-        titleLarge: TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.w600,
-          color: baseColor,
-        ),
-        titleMedium: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-          color: baseColor,
-          letterSpacing: 0.15,
-        ),
-        titleSmall: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-          color: baseColor,
-          letterSpacing: 0.1,
-        ),
-        bodyLarge: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: baseColor,
-          letterSpacing: 0.5,
-        ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-          color: baseColor,
-          letterSpacing: 0.25,
-        ),
-        bodySmall: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w400,
-          color: baseColor,
-          letterSpacing: 0.4,
-        ),
-        labelLarge: TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w600,
-          color: baseColor,
-          letterSpacing: 0.1,
-        ),
-        labelMedium: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w600,
-          color: baseColor,
-          letterSpacing: 0.5,
-        ),
-        labelSmall: TextStyle(
-          fontSize: 11,
-          fontWeight: FontWeight.w500,
-          color: baseColor,
-          letterSpacing: 0.5,
-        ),
+  static TextTheme _buildTextTheme(Color baseColor, String fontFamily, double sizeScale) {
+    TextTheme baseTheme;
+    switch (fontFamily) {
+      case 'Poppins':
+        baseTheme = GoogleFonts.poppinsTextTheme();
+        break;
+      case 'Inter':
+        baseTheme = GoogleFonts.interTextTheme();
+        break;
+      case 'Roboto':
+        baseTheme = GoogleFonts.robotoTextTheme();
+        break;
+      case 'Lexend':
+        baseTheme = GoogleFonts.lexendTextTheme();
+        break;
+      case 'Outfit':
+      default:
+        baseTheme = GoogleFonts.outfitTextTheme();
+        break;
+    }
+
+    return baseTheme.copyWith(
+      displayLarge: baseTheme.displayLarge?.copyWith(
+        fontSize: (baseTheme.displayLarge?.fontSize ?? 57) * sizeScale,
+        fontWeight: FontWeight.w400,
+        color: baseColor,
+        letterSpacing: -0.25,
+      ),
+      displayMedium: baseTheme.displayMedium?.copyWith(
+        fontSize: (baseTheme.displayMedium?.fontSize ?? 45) * sizeScale,
+        fontWeight: FontWeight.w400,
+        color: baseColor,
+      ),
+      displaySmall: baseTheme.displaySmall?.copyWith(
+        fontSize: (baseTheme.displaySmall?.fontSize ?? 36) * sizeScale,
+        fontWeight: FontWeight.w400,
+        color: baseColor,
+      ),
+      headlineLarge: baseTheme.headlineLarge?.copyWith(
+        fontSize: (baseTheme.headlineLarge?.fontSize ?? 32) * sizeScale,
+        fontWeight: FontWeight.w700,
+        color: baseColor,
+      ),
+      headlineMedium: baseTheme.headlineMedium?.copyWith(
+        fontSize: (baseTheme.headlineMedium?.fontSize ?? 28) * sizeScale,
+        fontWeight: FontWeight.w600,
+        color: baseColor,
+      ),
+      headlineSmall: baseTheme.headlineSmall?.copyWith(
+        fontSize: (baseTheme.headlineSmall?.fontSize ?? 24) * sizeScale,
+        fontWeight: FontWeight.w600,
+        color: baseColor,
+      ),
+      titleLarge: baseTheme.titleLarge?.copyWith(
+        fontSize: (baseTheme.titleLarge?.fontSize ?? 22) * sizeScale,
+        fontWeight: FontWeight.w600,
+        color: baseColor,
+      ),
+      titleMedium: baseTheme.titleMedium?.copyWith(
+        fontSize: (baseTheme.titleMedium?.fontSize ?? 16) * sizeScale,
+        fontWeight: FontWeight.w600,
+        color: baseColor,
+        letterSpacing: 0.15,
+      ),
+      titleSmall: baseTheme.titleSmall?.copyWith(
+        fontSize: (baseTheme.titleSmall?.fontSize ?? 14) * sizeScale,
+        fontWeight: FontWeight.w600,
+        color: baseColor,
+        letterSpacing: 0.1,
+      ),
+      bodyLarge: baseTheme.bodyLarge?.copyWith(
+        fontSize: (baseTheme.bodyLarge?.fontSize ?? 16) * sizeScale,
+        fontWeight: FontWeight.w400,
+        color: baseColor,
+        letterSpacing: 0.5,
+      ),
+      bodyMedium: baseTheme.bodyMedium?.copyWith(
+        fontSize: (baseTheme.bodyMedium?.fontSize ?? 14) * sizeScale,
+        fontWeight: FontWeight.w400,
+        color: baseColor,
+        letterSpacing: 0.25,
+      ),
+      bodySmall: baseTheme.bodySmall?.copyWith(
+        fontSize: (baseTheme.bodySmall?.fontSize ?? 12) * sizeScale,
+        fontWeight: FontWeight.w400,
+        color: baseColor,
+        letterSpacing: 0.4,
+      ),
+      labelLarge: baseTheme.labelLarge?.copyWith(
+        fontSize: (baseTheme.labelLarge?.fontSize ?? 14) * sizeScale,
+        fontWeight: FontWeight.w600,
+        color: baseColor,
+        letterSpacing: 0.1,
+      ),
+      labelMedium: baseTheme.labelMedium?.copyWith(
+        fontSize: (baseTheme.labelMedium?.fontSize ?? 12) * sizeScale,
+        fontWeight: FontWeight.w600,
+        color: baseColor,
+        letterSpacing: 0.5,
+      ),
+      labelSmall: baseTheme.labelSmall?.copyWith(
+        fontSize: (baseTheme.labelSmall?.fontSize ?? 11) * sizeScale,
+        fontWeight: FontWeight.w500,
+        color: baseColor,
+        letterSpacing: 0.5,
       ),
     );
   }
 
-  static ThemeData lightTheme() {
+  static ThemeData lightTheme({String fontFamily = 'Outfit', double sizeScale = 1.0}) {
     const ColorScheme colorScheme = ColorScheme.light(
       primary: AppColors.primaryBlue,
       onPrimary: AppColors.white,
@@ -118,7 +136,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      textTheme: _buildTextTheme(AppColors.grey900),
+      textTheme: _buildTextTheme(AppColors.grey900, fontFamily, sizeScale),
       scaffoldBackgroundColor: AppColors.grey50,
       appBarTheme: AppBarTheme(
         elevation: 0,
@@ -264,7 +282,7 @@ class AppTheme {
     );
   }
 
-  static ThemeData darkTheme() {
+  static ThemeData darkTheme({String fontFamily = 'Outfit', double sizeScale = 1.0}) {
     const ColorScheme colorScheme = ColorScheme.dark(
       primary: Color(0xFF4D8AFF),
       onPrimary: AppColors.white,
@@ -287,7 +305,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      textTheme: _buildTextTheme(const Color(0xFFE6EDF3)),
+      textTheme: _buildTextTheme(const Color(0xFFE6EDF3), fontFamily, sizeScale),
       scaffoldBackgroundColor: AppColors.darkBackground,
       appBarTheme: AppBarTheme(
         elevation: 0,

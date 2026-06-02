@@ -12,13 +12,15 @@ class ApVisionCareApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
     final themeMode = ref.watch(themeProvider);
+    final fontFamily = ref.watch(fontFamilyProvider);
+    final sizeScale = ref.watch(fontSizeScaleProvider);
 
     return MaterialApp.router(
       title: 'AP Vision Care',
       debugShowCheckedModeBanner: false,
       themeMode: themeMode,
-      theme: AppTheme.lightTheme(),
-      darkTheme: AppTheme.darkTheme(),
+      theme: AppTheme.lightTheme(fontFamily: fontFamily, sizeScale: sizeScale),
+      darkTheme: AppTheme.darkTheme(fontFamily: fontFamily, sizeScale: sizeScale),
       routerConfig: router,
     );
   }

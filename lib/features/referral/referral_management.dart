@@ -41,7 +41,7 @@ class _ReferralManagementState extends ConsumerState<ReferralManagement>
     return Scaffold(
       appBar: AppBar(
         title: const Text('Referral Management'),
-        backgroundColor: AppColors.error,
+        backgroundColor: AppColors.primaryBlue,
         leading: const AppBarBackButton(),
         bottom: TabBar(
           controller: _tabController,

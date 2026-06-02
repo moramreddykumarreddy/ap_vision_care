@@ -159,7 +159,10 @@ class _RoleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
-        onTap: () => context.go(role.route),
+        onTap: () {
+          final encodedRoute = Uri.encodeComponent(role.route);
+          context.go('/login?role=${role.id}&route=$encodedRoute');
+        },
         borderRadius: BorderRadius.circular(16),
         child: Padding(
           padding: const EdgeInsets.all(16),

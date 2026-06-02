@@ -1,6 +1,7 @@
 // lib/features/screening_team/registration/steps/generate_prescription_step.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_colors.dart';
 
 class GeneratePrescriptionStep extends StatelessWidget {
@@ -231,7 +232,17 @@ class GeneratePrescriptionStep extends StatelessWidget {
 
           // Action buttons
           ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Patient registration completed and prescription generated!'),
+                  backgroundColor: AppColors.success,
+                  behavior: SnackBarBehavior.floating,
+                  duration: Duration(seconds: 1),
+                ),
+              );
+              context.go('/screening/dashboard');
+            },
             icon: const Icon(Icons.check_rounded, size: 18),
             label: const Text('Submit & Generate Prescription'),
             style: ElevatedButton.styleFrom(
@@ -241,13 +252,30 @@ class GeneratePrescriptionStep extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Downloading prescription PDF...'),
+                  behavior: SnackBarBehavior.floating,
+                  duration: Duration(seconds: 1),
+                ),
+              );
+            },
             icon: const Icon(Icons.download_rounded, size: 18),
             label: const Text('Download PDF Preview'),
           ),
           const SizedBox(height: 12),
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('Prescription shared via SMS and WhatsApp!'),
+                  backgroundColor: AppColors.primaryBlue,
+                  behavior: SnackBarBehavior.floating,
+                  duration: Duration(seconds: 1),
+                ),
+              );
+            },
             icon: const Icon(Icons.share_rounded, size: 18),
             label: const Text('Share Prescription'),
           ),

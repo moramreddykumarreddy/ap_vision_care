@@ -199,6 +199,8 @@ class _DeliveryVerificationState extends State<DeliveryVerification> {
                           const SnackBar(
                             content: Text('Delivery verified successfully!'),
                             backgroundColor: AppColors.success,
+                            behavior: SnackBarBehavior.floating,
+                            duration: Duration(seconds: 1),
                           ),
                         );
                       }
