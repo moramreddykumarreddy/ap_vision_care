@@ -1,0 +1,354 @@
+// lib/data/dummy/dummy_data.dart
+import '../models/models.dart';
+
+class DummyData {
+  // ─── Patients ───────────────────────────────────────────────────────────
+  static final List<PatientModel> patients = [
+    PatientModel(
+      id: 'P001',
+      name: 'Ravi Kumar Reddy',
+      nameTelugu: 'రవి కుమార్ రెడ్డి',
+      mobile: '9876543210',
+      abhaNumber: '14-3456-7890-1234',
+      age: 45,
+      gender: 'Male',
+      address: 'H.No 12-34, Krishnanagar Colony, Vijayawada',
+      district: 'Krishna',
+      mandal: 'Vijayawada Urban',
+      village: 'Krishnanagar',
+      photoUrl: '',
+      education: 'Secondary School',
+      occupation: 'Farmer',
+      incomeCategory: 'BPL',
+      socialCategory: 'BC-A',
+      areaType: 'Urban',
+    ),
+    PatientModel(
+      id: 'P002',
+      name: 'Lakshmi Devi',
+      nameTelugu: 'లక్ష్మి దేవి',
+      mobile: '8765432109',
+      abhaNumber: '14-2345-6789-0123',
+      age: 62,
+      gender: 'Female',
+      address: 'Vill: Srikakulam, Mandal: Palasa',
+      district: 'Srikakulam',
+      mandal: 'Palasa',
+      village: 'Srikakulam',
+      photoUrl: '',
+      education: 'Illiterate',
+      occupation: 'Agriculture Labour',
+      incomeCategory: 'BPL',
+      socialCategory: 'SC',
+      areaType: 'Rural',
+    ),
+    PatientModel(
+      id: 'P003',
+      name: 'Suresh Babu',
+      nameTelugu: 'సురేష్ బాబు',
+      mobile: '7654321098',
+      abhaNumber: '14-1234-5678-9012',
+      age: 38,
+      gender: 'Male',
+      address: 'Flat 4B, Sai Residency, Guntur',
+      district: 'Guntur',
+      mandal: 'Guntur Urban',
+      village: 'Brodipet',
+      photoUrl: '',
+      education: 'Graduate',
+      occupation: 'Government Employee',
+      incomeCategory: 'APL',
+      socialCategory: 'OC',
+      areaType: 'Urban',
+    ),
+  ];
+
+  // ─── Prescriptions ────────────────────────────────────────────────────
+  static final List<PrescriptionModel> prescriptions = [
+    PrescriptionModel(
+      id: 'RX001',
+      patientId: 'P001',
+      patientName: 'Ravi Kumar Reddy',
+      date: '2024-03-15',
+      doctorName: 'Dr. Venkata Rao',
+      diagnosis: 'Myopia with Astigmatism',
+      rightEyeSph: '-2.50',
+      rightEyeCyl: '-0.75',
+      rightEyeAxis: '180',
+      leftEyeSph: '-2.25',
+      leftEyeCyl: '-0.50',
+      leftEyeAxis: '175',
+      status: 'Delivered',
+      spectacleStatus: SpectacleStatus.delivered,
+    ),
+    PrescriptionModel(
+      id: 'RX002',
+      patientId: 'P002',
+      patientName: 'Lakshmi Devi',
+      date: '2024-03-18',
+      doctorName: 'Dr. Priya Sharma',
+      diagnosis: 'Presbyopia + Cataract (Right Eye)',
+      rightEyeSph: '+2.00',
+      rightEyeCyl: '-1.00',
+      rightEyeAxis: '90',
+      leftEyeSph: '+1.75',
+      leftEyeCyl: '-0.75',
+      leftEyeAxis: '85',
+      status: 'Manufacturing',
+      spectacleStatus: SpectacleStatus.manufacturing,
+    ),
+    PrescriptionModel(
+      id: 'RX003',
+      patientId: 'P003',
+      patientName: 'Suresh Babu',
+      date: '2024-03-20',
+      doctorName: 'Dr. Anand Kumar',
+      diagnosis: 'Hyperopia',
+      rightEyeSph: '+1.50',
+      rightEyeCyl: '0.00',
+      rightEyeAxis: '0',
+      leftEyeSph: '+1.25',
+      leftEyeCyl: '-0.25',
+      leftEyeAxis: '90',
+      status: 'Dispatched',
+      spectacleStatus: SpectacleStatus.dispatched,
+    ),
+  ];
+
+  // ─── Referrals ────────────────────────────────────────────────────────
+  static final List<ReferralModel> referrals = [
+    ReferralModel(
+      id: 'REF001',
+      patientName: 'Ravi Kumar Reddy',
+      patientId: 'P001',
+      hospital: 'Government Eye Hospital, Vijayawada',
+      condition: 'Advanced Glaucoma',
+      priority: 'Emergency',
+      status: 'Pending',
+      date: '2024-03-20',
+      doctorName: 'Dr. Venkata Rao',
+    ),
+    ReferralModel(
+      id: 'REF002',
+      patientName: 'Lakshmi Devi',
+      patientId: 'P002',
+      hospital: 'Aravind Eye Hospital, Tirupati',
+      condition: 'Mature Cataract',
+      priority: 'High',
+      status: 'Approved',
+      date: '2024-03-18',
+      doctorName: 'Dr. Priya Sharma',
+    ),
+    ReferralModel(
+      id: 'REF003',
+      patientName: 'Suresh Babu',
+      patientId: 'P003',
+      hospital: 'L.V. Prasad Eye Institute, Hyderabad',
+      condition: 'Diabetic Retinopathy',
+      priority: 'Moderate',
+      status: 'In Transit',
+      date: '2024-03-19',
+      doctorName: 'Dr. Anand Kumar',
+    ),
+  ];
+
+  // ─── Camps ───────────────────────────────────────────────────────────
+  static final List<CampModel> camps = [
+    CampModel(
+      id: 'CAMP001',
+      name: 'Eye Screening Camp - Nuzvid',
+      district: 'Krishna',
+      mandal: 'Nuzvid',
+      village: 'Nuzvid Town',
+      date: '2024-03-25',
+      status: 'Active',
+      totalRegistered: 145,
+      totalScreened: 132,
+      prescriptionsGenerated: 48,
+      referrals: 12,
+      teamLead: 'Dr. Srinivasa Rao',
+    ),
+    CampModel(
+      id: 'CAMP002',
+      name: 'Vision Care Camp - Chirala',
+      district: 'Prakasam',
+      mandal: 'Chirala',
+      village: 'Chirala Urban',
+      date: '2024-03-22',
+      status: 'Completed',
+      totalRegistered: 210,
+      totalScreened: 210,
+      prescriptionsGenerated: 87,
+      referrals: 23,
+      teamLead: 'Dr. Radha Krishna',
+    ),
+    CampModel(
+      id: 'CAMP003',
+      name: 'Rural Eye Camp - Rajahmundry',
+      district: 'East Godavari',
+      mandal: 'Rajanagaram',
+      village: 'Rajanagaram',
+      date: '2024-03-28',
+      status: 'Scheduled',
+      totalRegistered: 0,
+      totalScreened: 0,
+      prescriptionsGenerated: 0,
+      referrals: 0,
+      teamLead: 'Dr. Nagendra Babu',
+    ),
+  ];
+
+  // ─── Analytics Data ───────────────────────────────────────────────────
+  static final AnalyticsStateData stateAnalytics = AnalyticsStateData(
+    totalPatients: 148750,
+    totalScreened: 132480,
+    totalPrescriptions: 45620,
+    totalReferrals: 8930,
+    teleconsultations: 12450,
+    spectaclesDelivered: 38740,
+    monthlyData: [
+      MonthlyMetric(month: 'Oct', patients: 8200, screened: 7400, referrals: 620),
+      MonthlyMetric(month: 'Nov', patients: 9800, screened: 8900, referrals: 740),
+      MonthlyMetric(month: 'Dec', patients: 11200, screened: 10100, referrals: 890),
+      MonthlyMetric(month: 'Jan', patients: 13500, screened: 12200, referrals: 1050),
+      MonthlyMetric(month: 'Feb', patients: 15800, screened: 14300, referrals: 1280),
+      MonthlyMetric(month: 'Mar', patients: 18200, screened: 16500, referrals: 1490),
+    ],
+    diseaseDistribution: [
+      DiseaseData(disease: 'Refractive Error', count: 52000, percentage: 35.0),
+      DiseaseData(disease: 'Cataract', count: 28000, percentage: 18.8),
+      DiseaseData(disease: 'Glaucoma', count: 14000, percentage: 9.4),
+      DiseaseData(disease: 'Diabetic Retinopathy', count: 18000, percentage: 12.1),
+      DiseaseData(disease: 'Normal', count: 36000, percentage: 24.2),
+    ],
+  );
+
+  // ─── Districts ────────────────────────────────────────────────────────
+  static final List<DistrictData> districts = [
+    DistrictData(name: 'Visakhapatnam', patients: 18500, screened: 16800, coverage: 90.8, rank: 1),
+    DistrictData(name: 'Krishna', patients: 15200, screened: 13500, coverage: 88.8, rank: 2),
+    DistrictData(name: 'Guntur', patients: 14800, screened: 12900, coverage: 87.2, rank: 3),
+    DistrictData(name: 'East Godavari', patients: 13200, screened: 11400, coverage: 86.4, rank: 4),
+    DistrictData(name: 'West Godavari', patients: 12500, screened: 10600, coverage: 84.8, rank: 5),
+    DistrictData(name: 'Prakasam', patients: 11800, screened: 9800, coverage: 83.1, rank: 6),
+    DistrictData(name: 'Kurnool', patients: 11200, screened: 9100, coverage: 81.3, rank: 7),
+    DistrictData(name: 'Srikakulam', patients: 10500, screened: 8300, coverage: 79.0, rank: 8),
+    DistrictData(name: 'Nellore', patients: 9800, screened: 7600, coverage: 77.6, rank: 9),
+    DistrictData(name: 'Chittoor', patients: 9200, screened: 6900, coverage: 75.0, rank: 10),
+  ];
+
+  // ─── Teleconsultations ────────────────────────────────────────────────
+  static final List<TeleconsultationModel> teleconsultations = [
+    TeleconsultationModel(
+      id: 'TC001',
+      patientName: 'Ravi Kumar Reddy',
+      patientId: 'P001',
+      doctorName: 'Dr. Anita Rao',
+      scheduledTime: '2024-03-25 10:30 AM',
+      status: 'Scheduled',
+      condition: 'Diabetic Retinopathy Follow-up',
+      duration: 0,
+    ),
+    TeleconsultationModel(
+      id: 'TC002',
+      patientName: 'Lakshmi Devi',
+      patientId: 'P002',
+      doctorName: 'Dr. Venkat Kumar',
+      scheduledTime: '2024-03-24 02:00 PM',
+      status: 'Completed',
+      condition: 'Post-cataract consultation',
+      duration: 18,
+    ),
+  ];
+
+  // ─── Vendor Orders ────────────────────────────────────────────────────
+  static final List<VendorOrderModel> vendorOrders = [
+    VendorOrderModel(
+      id: 'ORD001',
+      patientName: 'Ravi Kumar Reddy',
+      prescriptionId: 'RX001',
+      vendorName: 'Sri Opticals, Vijayawada',
+      status: 'Delivered',
+      orderDate: '2024-03-16',
+      deliveryDate: '2024-03-22',
+      lensType: 'Anti-Reflective',
+      frameType: 'Full Rim',
+      amount: 450.0,
+    ),
+    VendorOrderModel(
+      id: 'ORD002',
+      patientName: 'Lakshmi Devi',
+      prescriptionId: 'RX002',
+      vendorName: 'Vision Plus Optics, Tirupati',
+      status: 'Manufacturing',
+      orderDate: '2024-03-19',
+      deliveryDate: '',
+      lensType: 'Bifocal',
+      frameType: 'Half Rim',
+      amount: 380.0,
+    ),
+    VendorOrderModel(
+      id: 'ORD003',
+      patientName: 'Suresh Babu',
+      prescriptionId: 'RX003',
+      vendorName: 'National Optical Co., Guntur',
+      status: 'Dispatched',
+      orderDate: '2024-03-21',
+      deliveryDate: '2024-03-26',
+      lensType: 'Single Vision',
+      frameType: 'Full Rim',
+      amount: 320.0,
+    ),
+  ];
+
+  // ─── AI Risk Data ─────────────────────────────────────────────────────
+  static final AiRiskData aiRiskData = AiRiskData(
+    catarackRisk: 23.4,
+    glaucomaRisk: 8.7,
+    diabeticRetinopathyRisk: 15.2,
+    blindnessRisk: 4.3,
+    highRiskPatients: 3420,
+    totalAnalyzed: 132480,
+  );
+
+  // ─── School Vision ────────────────────────────────────────────────────
+  static final SchoolVisionData schoolVisionData = SchoolVisionData(
+    totalStudentsScreened: 45200,
+    needingGlasses: 8930,
+    glassesDelivered: 7840,
+    pendingDelivery: 1090,
+    schools: [
+      SchoolData(name: 'ZP High School, Nuzvid', studentsScreened: 320, needingGlasses: 48),
+      SchoolData(name: 'MPP School, Chirala', studentsScreened: 280, needingGlasses: 62),
+      SchoolData(name: 'Govt High School, Tirupati', studentsScreened: 450, needingGlasses: 89),
+    ],
+  );
+
+  // ─── Notifications ────────────────────────────────────────────────────
+  static final List<NotificationModel> notifications = [
+    NotificationModel(
+      id: 'N001',
+      title: 'Prescription Approved',
+      message: 'Your prescription RX001 has been approved by Nodal Officer',
+      time: '2 hours ago',
+      isRead: false,
+      type: 'prescription',
+    ),
+    NotificationModel(
+      id: 'N002',
+      title: 'Spectacles Dispatched',
+      message: 'Your spectacles order ORD001 has been dispatched from Vijayawada',
+      time: '1 day ago',
+      isRead: true,
+      type: 'spectacle',
+    ),
+    NotificationModel(
+      id: 'N003',
+      title: 'Teleconsultation Scheduled',
+      message: 'Your teleconsultation with Dr. Anita Rao is scheduled for tomorrow 10:30 AM',
+      time: '3 hours ago',
+      isRead: false,
+      type: 'teleconsultation',
+    ),
+  ];
+}

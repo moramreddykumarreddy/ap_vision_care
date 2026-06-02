@@ -1,0 +1,116 @@
+// lib/features/super_admin/super_admin_shell.dart
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../../core/theme/app_colors.dart';
+
+class SuperAdminShell extends StatelessWidget {
+  final Widget child;
+  const SuperAdminShell({super.key, required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Row(
+        children: [
+          // Side rail for tablets
+          if (MediaQuery.of(context).size.width > 768)
+            _AdminSideRail(),
+          Expanded(child: child),
+        ],
+      ),
+    );
+  }
+}
+
+class _AdminSideRail extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final location = GoRouterState.of(context).uri.toString();
+
+    return Container(
+      width: 220,
+      color: AppColors.darkBackground,
+      child: SafeArea(
+        child: Column(
+          children: [
+            // Logo
+            Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [
+                  Container(
+                    width: 36, height: 36,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.primaryBlue.withOpacity(0.2),
+                    ),
+                    child: const Icon(Icons.visibility, color: Colors.white, size: 20),
+                  ),
+                  const SizedBox(width: 10),
+                  const Expanded(
+                    child: Text('AP Vision', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 14)),
+                  ),
+                ],
+              ),
+            ),
+            const Divider(color: AppColors.darkBorder),
+
+            // Menu items
+            ..._menuItems.map((item) {
+              final isSelected = location.startsWith(item.path);
+              return _SideRailItem(item: item, isSelected: isSelected);
+            }),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _SideRailItem extends StatelessWidget {
+  final _MenuItem item;
+  final bool isSelected;
+  const _SideRailItem({required this.item, required this.isSelected});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(item.icon, color: isSelected ? AppColors.accent : Colors.white54, size: 20),
+      title: Text(
+        item.label,
+        style: TextStyle(
+          color: isSelected ? Colors.white : Colors.white54,
+          fontSize: 13,
+          fontWeight: isSelected ? FontWeight.w700 : FontWeight.w400,
+        ),
+      ),
+      selected: isSelected,
+      selectedTileColor: AppColors.accent.withOpacity(0.12),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      onTap: () => context.go(item.path),
+    );
+  }
+}
+
+class _MenuItem {
+  final IconData icon;
+  final String label;
+  final String path;
+  const _MenuItem(this.icon, this.label, this.path);
+}
+
+const _menuItems = [
+  _MenuItem(Icons.dashboard_rounded, 'Dashboard', '/admin/dashboard'),
+  _MenuItem(Icons.bar_chart_rounded, 'State Analytics', '/admin/analytics/state'),
+  _MenuItem(Icons.map_rounded, 'District View', '/admin/analytics/district'),
+  _MenuItem(Icons.auto_awesome_rounded, 'AI Analytics', '/admin/analytics/ai'),
+  _MenuItem(Icons.restaurant_rounded, 'Nutrition', '/admin/analytics/nutrition'),
+  _MenuItem(Icons.school_rounded, 'School Vision', '/admin/analytics/school'),
+  _MenuItem(Icons.elderly_rounded, 'Elderly Care', '/admin/analytics/elderly'),
+  _MenuItem(Icons.gavel_rounded, 'Decision Support', '/admin/analytics/decision'),
+  _MenuItem(Icons.timeline_rounded, 'EMR', '/admin/emr'),
+  _MenuItem(Icons.folder_open_rounded, 'Documents', '/admin/documents'),
+  _MenuItem(Icons.local_hospital_rounded, 'Referrals', '/admin/referrals'),
+  _MenuItem(Icons.summarize_rounded, 'Reports', '/admin/reports'),
+  _MenuItem(Icons.settings_rounded, 'Settings', '/admin/settings'),
+];
