@@ -72,7 +72,7 @@ class RoleSelectionScreen extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Color(0xFF0D2347), Color(0xFF1A3A6B)],
+            colors: AppColors.heroGradient,
           ),
         ),
         child: SafeArea(

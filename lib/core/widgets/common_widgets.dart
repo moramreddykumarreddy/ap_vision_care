@@ -1,7 +1,8 @@
-// lib/core/widgets/section_header.dart
+// lib/core/widgets/common_widgets.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../theme/app_colors.dart';
 import '../../providers/app_providers.dart';
 
 class SectionHeader extends StatelessWidget {
@@ -122,33 +123,24 @@ class StatusBadge extends StatelessWidget {
   static Color _colorForLabel(String label) {
     switch (label.toLowerCase()) {
       case 'delivered':
-        return const Color(0xFF2E7D32);
       case 'approved':
-        return const Color(0xFF2E7D32);
-      case 'dispatched':
-        return const Color(0xFF0277BD);
-      case 'manufacturing':
-        return const Color(0xFFE65100);
-      case 'pending':
-        return const Color(0xFF757575);
-      case 'rejected':
-        return const Color(0xFFC62828);
       case 'active':
-        return const Color(0xFF2E7D32);
-      case 'scheduled':
-        return const Color(0xFF6A1B9A);
       case 'completed':
-        return const Color(0xFF00695C);
-      case 'emergency':
-        return const Color(0xFFC62828);
-      case 'high':
-        return const Color(0xFFE65100);
+      case 'dispatched':
+        return AppColors.success;
+      case 'manufacturing':
+      case 'pending':
+      case 'scheduled':
       case 'moderate':
-        return const Color(0xFFD4A017);
+        return AppColors.warning;
+      case 'rejected':
+      case 'emergency':
+      case 'high':
+        return AppColors.error;
       case 'routine':
-        return const Color(0xFF0277BD);
+        return AppColors.info;
       default:
-        return const Color(0xFF757575);
+        return AppColors.brandGray;
     }
   }
 
@@ -327,11 +319,11 @@ class ApLogoWidget extends StatelessWidget {
             gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color(0xFF1A3A6B), Color(0xFF2952A3)],
+              colors: AppColors.heroGradient,
             ),
             boxShadow: [
               BoxShadow(
-                color: const Color(0xFF1A3A6B).withOpacity(0.3),
+                color: AppColors.brandBlue.withOpacity(0.3),
                 blurRadius: 20,
                 offset: const Offset(0, 8),
               ),
@@ -345,7 +337,7 @@ class ApLogoWidget extends StatelessWidget {
                 bottom: size * 0.15,
                 child: Icon(
                   Icons.medical_services,
-                  color: const Color(0xFFD4A017),
+                  color: AppColors.brandRed,
                   size: size * 0.18,
                 ),
               ),

@@ -1,5 +1,6 @@
 // lib/features/auth/login_screen.dart
 import 'package:flutter/material.dart';
+import '../../core/theme/app_colors.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
@@ -29,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('OTP sent successfully to +91 ${_mobileController.text}'),
-            backgroundColor: const Color(0xFF1A3A6B),
+            backgroundColor: AppColors.brandBlue,
             behavior: SnackBarBehavior.floating,
             duration: const Duration(seconds: 1),
           ),
@@ -53,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFF0D2347), Color(0xFF1A3A6B)],
+            colors: AppColors.heroGradient,
           ),
         ),
         child: SafeArea(
@@ -128,7 +129,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               'Sign In',
                               style: theme.textTheme.headlineSmall?.copyWith(
                                 fontWeight: FontWeight.w800,
-                                color: const Color(0xFF1A3A6B),
+                                color: AppColors.brandBlue,
                               ),
                             ),
                             const SizedBox(height: 4),

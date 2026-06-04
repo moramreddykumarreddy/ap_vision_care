@@ -37,7 +37,7 @@ class _DeliveryVerificationState extends State<DeliveryVerification> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                gradient: const LinearGradient(colors: [AppColors.vendorColor, Color(0xFFFF8C00)]),
+                gradient: const LinearGradient(colors: AppColors.heroGradient),
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Row(

@@ -45,7 +45,7 @@ class _VideoConsultationScreenState extends State<VideoConsultationScreen>
         }
       },
       child: Scaffold(
-        backgroundColor: const Color(0xFF0A0A0F),
+        backgroundColor: AppColors.darkBackground,
       body: SafeArea(
         child: Column(
           children: [
@@ -54,7 +54,7 @@ class _VideoConsultationScreenState extends State<VideoConsultationScreen>
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Row(
                 children: [
-                  const Icon(Icons.circle, color: Color(0xFF4CAF50), size: 10),
+                  const Icon(Icons.circle, color: AppColors.brandRed, size: 10),
                   const SizedBox(width: 6),
                   const Text('LIVE', style: TextStyle(color: Colors.white70, fontSize: 11, fontWeight: FontWeight.w700, letterSpacing: 1)),
                   const Spacer(),
@@ -77,7 +77,7 @@ class _VideoConsultationScreenState extends State<VideoConsultationScreen>
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: const Color(0xFF1A1A2E),
+                      color: AppColors.darkCard,
                       borderRadius: BorderRadius.circular(16),
                     ),
                     margin: const EdgeInsets.symmetric(horizontal: 12),
@@ -105,7 +105,7 @@ class _VideoConsultationScreenState extends State<VideoConsultationScreen>
                       width: 90,
                       height: 120,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF0277BD),
+                        color: AppColors.brandBlue,
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(color: Colors.white30, width: 1),
                       ),
@@ -131,7 +131,7 @@ class _VideoConsultationScreenState extends State<VideoConsultationScreen>
             Container(
               margin: const EdgeInsets.fromLTRB(12, 8, 12, 0),
               decoration: BoxDecoration(
-                color: const Color(0xFF1A1A2E),
+                color: AppColors.darkCard,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TabBar(
@@ -162,7 +162,7 @@ class _VideoConsultationScreenState extends State<VideoConsultationScreen>
             // Controls bar
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              color: const Color(0xFF0D0D1A),
+              color: AppColors.darkBackground,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -263,7 +263,7 @@ class _NotesPanel extends StatelessWidget {
       margin: const EdgeInsets.all(12),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A2E),
+        color: AppColors.darkCard,
         borderRadius: BorderRadius.circular(12),
       ),
       child: const TextField(
@@ -287,7 +287,7 @@ class _ChatPanel extends StatelessWidget {
       margin: const EdgeInsets.all(12),
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: const Color(0xFF1A1A2E),
+        color: AppColors.darkCard,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(

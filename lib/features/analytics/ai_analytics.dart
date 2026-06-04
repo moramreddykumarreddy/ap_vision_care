@@ -31,7 +31,7 @@ class AiAnalyticsDashboard extends ConsumerWidget {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
-                  colors: [AppColors.primaryBlue, Color(0xFF2952A3)],
+                  colors: AppColors.heroGradient,
                 ),
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -94,7 +94,7 @@ class AiAnalyticsDashboard extends ConsumerWidget {
                         gradient: const RadialGradient(
                           center: Alignment.center,
                           radius: 0.8,
-                          colors: [Color(0xFFF44336), Color(0xFFFF9800), Color(0xFF4CAF50)],
+                          colors: [AppColors.brandRed, AppColors.brandGray, AppColors.brandBlue],
                         ),
                         borderRadius: BorderRadius.circular(12),
                       ),

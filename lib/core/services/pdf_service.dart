@@ -12,8 +12,11 @@ class PdfService {
   // ─── Brand Colors ────────────────────────────────────────────────────────
   static const _primaryBlue = PdfColor.fromInt(0xFF004990);
   static const _accentRed = PdfColor.fromInt(0xFFE31B23);
-  static const _lightBlue = PdfColor.fromInt(0xFFE8EEF7);
-  static const _grey = PdfColor.fromInt(0xFF757575);
+  static const _lightBlue = PdfColor.fromInt(0xFFE0E9F2);
+  static const _grey = PdfColor.fromInt(0xFF6D6E71);
+  static const _greyBorder = PdfColor.fromInt(0xFFD6D6D6);
+  static const _greyBg = PdfColor.fromInt(0xFFF0F0F0);
+  static const _redSoft = PdfColor.fromInt(0xFFFCE8E9);
   static const _white = PdfColors.white;
 
   // ─── Header Builder ──────────────────────────────────────────────────────
@@ -46,7 +49,7 @@ class PdfService {
               pw.SizedBox(height: 2),
               pw.Text(
                 'Department of Health & Family Welfare',
-                style: pw.TextStyle(color: PdfColor.fromInt(0xFFCCCCCC), fontSize: 8),
+                style: pw.TextStyle(color: _greyBorder, fontSize: 8),
               ),
               pw.SizedBox(height: 4),
               pw.Text(
@@ -75,7 +78,7 @@ class PdfService {
               pw.SizedBox(height: 4),
               pw.Text(
                 'ID: $docId',
-                style: pw.TextStyle(color: PdfColor.fromInt(0xFFCCCCCC), fontSize: 8),
+                style: pw.TextStyle(color: _greyBorder, fontSize: 8),
               ),
             ],
           ),
@@ -202,7 +205,7 @@ class PdfService {
             pw.Container(
               padding: const pw.EdgeInsets.all(10),
               decoration: pw.BoxDecoration(
-                border: pw.Border.all(color: PdfColor.fromInt(0xFFDDDDDD)),
+                border: pw.Border.all(color: _greyBorder),
                 borderRadius: pw.BorderRadius.circular(4),
               ),
               child: pw.Column(
@@ -235,8 +238,8 @@ class PdfService {
             pw.Container(
               padding: const pw.EdgeInsets.all(10),
               decoration: pw.BoxDecoration(
-                color: PdfColor.fromInt(0xFFFFF8E1),
-                border: pw.Border.all(color: PdfColor.fromInt(0xFFFFE082)),
+                color: _redSoft,
+                border: pw.Border.all(color: _accentRed),
                 borderRadius: pw.BorderRadius.circular(4),
               ),
               child: pw.Text(
@@ -248,7 +251,7 @@ class PdfService {
             // Refraction Table
             _sectionTitle('REFRACTION DETAILS'),
             pw.Table(
-              border: pw.TableBorder.all(color: PdfColor.fromInt(0xFFCCCCCC), width: 0.5),
+              border: pw.TableBorder.all(color: _greyBorder, width: 0.5),
               children: [
                 pw.TableRow(
                   decoration: pw.BoxDecoration(color: _primaryBlue),
@@ -260,7 +263,7 @@ class PdfService {
                   ).toList(),
                 ),
                 pw.TableRow(
-                  decoration: pw.BoxDecoration(color: PdfColor.fromInt(0xFFF5F5F5)),
+                  decoration: pw.BoxDecoration(color: _greyBg),
                   children: ['Right Eye (OD)', rightSph, rightCyl, rightAxis].map((v) =>
                     pw.Padding(
                       padding: const pw.EdgeInsets.all(6),
@@ -289,7 +292,7 @@ class PdfService {
                   width: 180,
                   padding: const pw.EdgeInsets.all(10),
                   decoration: pw.BoxDecoration(
-                    border: pw.Border.all(color: PdfColor.fromInt(0xFFCCCCCC)),
+                    border: pw.Border.all(color: _greyBorder),
                     borderRadius: pw.BorderRadius.circular(4),
                   ),
                   child: pw.Column(
@@ -347,7 +350,7 @@ class PdfService {
             pw.Container(
               padding: const pw.EdgeInsets.all(10),
               decoration: pw.BoxDecoration(
-                border: pw.Border.all(color: PdfColor.fromInt(0xFFDDDDDD)),
+                border: pw.Border.all(color: _greyBorder),
                 borderRadius: pw.BorderRadius.circular(4),
               ),
               child: pw.Column(
@@ -373,7 +376,7 @@ class PdfService {
             pw.Container(
               padding: const pw.EdgeInsets.all(10),
               decoration: pw.BoxDecoration(
-                border: pw.Border.all(color: PdfColor.fromInt(0xFFDDDDDD)),
+                border: pw.Border.all(color: _greyBorder),
                 borderRadius: pw.BorderRadius.circular(4),
               ),
               child: pw.Column(
@@ -390,7 +393,7 @@ class PdfService {
               padding: const pw.EdgeInsets.all(10),
               height: 80,
               decoration: pw.BoxDecoration(
-                border: pw.Border.all(color: PdfColor.fromInt(0xFFDDDDDD)),
+                border: pw.Border.all(color: _greyBorder),
                 borderRadius: pw.BorderRadius.circular(4),
               ),
               child: pw.Text(
@@ -410,7 +413,7 @@ class PdfService {
                   width: 180,
                   padding: const pw.EdgeInsets.all(10),
                   decoration: pw.BoxDecoration(
-                    border: pw.Border.all(color: PdfColor.fromInt(0xFFCCCCCC)),
+                    border: pw.Border.all(color: _greyBorder),
                     borderRadius: pw.BorderRadius.circular(4),
                   ),
                   child: pw.Column(

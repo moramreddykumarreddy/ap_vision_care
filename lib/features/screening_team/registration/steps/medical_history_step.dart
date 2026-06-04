@@ -13,29 +13,29 @@ typedef _DropdownField = StepDropdownField;
 class MedicalHistoryStep extends ConsumerWidget {
   const MedicalHistoryStep({super.key});
 
-  static const _conditions = [
-    ('Diabetes Mellitus', Icons.water_drop_rounded, Color(0xFFE65100)),
-    ('Hypertension', Icons.favorite_rounded, Color(0xFFC62828)),
-    ('Thyroid Disorder', Icons.nightlight_rounded, Color(0xFF6A1B9A)),
-    ('Heart Disease', Icons.monitor_heart_rounded, Color(0xFFAD1457)),
-    ('Kidney Disease', Icons.bloodtype_rounded, Color(0xFF0277BD)),
-    ('Stroke / TIA', Icons.psychology_rounded, Color(0xFF37474F)),
-    ('Cancer', Icons.healing_rounded, Color(0xFF1B5E20)),
-    ('Asthma', Icons.air_rounded, Color(0xFF00695C)),
-    ('COPD', Icons.cloud_rounded, Color(0xFF4A148C)),
-    ('Anaemia', Icons.science_rounded, Color(0xFF827717)),
-    ('Malnutrition', Icons.restaurant_rounded, Color(0xFF558B2F)),
-    ('HIV/AIDS', Icons.health_and_safety_rounded, Color(0xFFB71C1C)),
+  static final _conditions = [
+    ('Diabetes Mellitus', Icons.water_drop_rounded, AppColors.chartColorAt(0)),
+    ('Hypertension', Icons.favorite_rounded, AppColors.chartColorAt(1)),
+    ('Thyroid Disorder', Icons.nightlight_rounded, AppColors.chartColorAt(2)),
+    ('Heart Disease', Icons.monitor_heart_rounded, AppColors.chartColorAt(3)),
+    ('Kidney Disease', Icons.bloodtype_rounded, AppColors.chartColorAt(4)),
+    ('Stroke / TIA', Icons.psychology_rounded, AppColors.chartColorAt(5)),
+    ('Cancer', Icons.healing_rounded, AppColors.chartColorAt(0)),
+    ('Asthma', Icons.air_rounded, AppColors.chartColorAt(1)),
+    ('COPD', Icons.cloud_rounded, AppColors.chartColorAt(2)),
+    ('Anaemia', Icons.science_rounded, AppColors.chartColorAt(3)),
+    ('Malnutrition', Icons.restaurant_rounded, AppColors.chartColorAt(4)),
+    ('HIV/AIDS', Icons.health_and_safety_rounded, AppColors.chartColorAt(5)),
   ];
 
-  static const _ocularConditions = [
-    ('Refractive Error', Icons.visibility_outlined, Color(0xFF1565C0)),
-    ('Cataract', Icons.lens_outlined, Color(0xFF6A1B9A)),
-    ('Glaucoma', Icons.remove_red_eye_outlined, Color(0xFF00838F)),
-    ('Ocular Trauma', Icons.healing_outlined, Color(0xFFC62828)),
-    ('Eye Surgery', Icons.medical_services_outlined, Color(0xFF4527A0)),
-    ('Contact Lens Use', Icons.circle_outlined, Color(0xFF0277BD)),
-    ('Prosthesis / Conformer Use', Icons.accessibility_new_outlined, Color(0xFF37474F)),
+  static final _ocularConditions = [
+    ('Refractive Error', Icons.visibility_outlined, AppColors.chartColorAt(0)),
+    ('Cataract', Icons.lens_outlined, AppColors.chartColorAt(1)),
+    ('Glaucoma', Icons.remove_red_eye_outlined, AppColors.chartColorAt(2)),
+    ('Ocular Trauma', Icons.healing_outlined, AppColors.chartColorAt(3)),
+    ('Eye Surgery', Icons.medical_services_outlined, AppColors.chartColorAt(4)),
+    ('Contact Lens Use', Icons.circle_outlined, AppColors.chartColorAt(5)),
+    ('Prosthesis / Conformer Use', Icons.accessibility_new_outlined, AppColors.chartColorAt(0)),
   ];
 
   @override

@@ -210,12 +210,12 @@ class _AbhaCard extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [Color(0xFF1A3A6B), Color(0xFF2952A3)],
+          colors: AppColors.heroGradient,
         ),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF1A3A6B).withOpacity(0.3),
+            color: AppColors.brandBlue.withOpacity(0.3),
             blurRadius: 16,
             offset: const Offset(0, 6),
           ),

@@ -68,7 +68,7 @@ class _VideoConsultationTab extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               gradient: const LinearGradient(
-                colors: [Color(0xFF0277BD), Color(0xFF01579B)],
+                colors: AppColors.heroGradient,
               ),
               borderRadius: BorderRadius.circular(16),
             ),
