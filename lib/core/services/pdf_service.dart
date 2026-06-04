@@ -6,6 +6,7 @@ import 'package:printing/printing.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+import 'package:flutter/services.dart' show rootBundle;
 
 class PdfService {
   // ─── Brand Colors ────────────────────────────────────────────────────────
@@ -16,7 +17,7 @@ class PdfService {
   static const _white = PdfColors.white;
 
   // ─── Header Builder ──────────────────────────────────────────────────────
-  static pw.Widget _buildHeader(String docTitle, String docId) {
+  static pw.Widget _buildHeader(String docTitle, String docId, pw.MemoryImage logo) {
     return pw.Container(
       padding: const pw.EdgeInsets.all(16),
       decoration: pw.BoxDecoration(
@@ -26,9 +27,13 @@ class PdfService {
       child: pw.Row(
         mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
         children: [
-          pw.Column(
-            crossAxisAlignment: pw.CrossAxisAlignment.start,
+          pw.Row(
             children: [
+              pw.Image(logo, height: 40),
+              pw.SizedBox(width: 12),
+              pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                children: [
               pw.Text(
                 'GOVERNMENT OF ANDHRA PRADESH',
                 style: pw.TextStyle(
@@ -53,6 +58,8 @@ class PdfService {
                 ),
               ),
             ],
+          ),
+          ],
           ),
           pw.Column(
             crossAxisAlignment: pw.CrossAxisAlignment.end,
@@ -177,6 +184,8 @@ class PdfService {
     final pdf = pw.Document();
     final now = DateTime.now();
     final dateStr = '${now.day}/${now.month}/${now.year}';
+    final imageBytes = await rootBundle.load('assets/images/apvision.png');
+    final logo = pw.MemoryImage(imageBytes.buffer.asUint8List());
 
     pdf.addPage(
       pw.Page(
@@ -185,7 +194,7 @@ class PdfService {
         build: (context) => pw.Column(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
-            _buildHeader('PRESCRIPTION', rxId),
+            _buildHeader('PRESCRIPTION', rxId, logo),
             pw.SizedBox(height: 16),
 
             // Patient Info
@@ -321,6 +330,8 @@ class PdfService {
     final pdf = pw.Document();
     final now = DateTime.now();
     final dateStr = '${now.day}/${now.month}/${now.year}';
+    final imageBytes = await rootBundle.load('assets/images/apvision.png');
+    final logo = pw.MemoryImage(imageBytes.buffer.asUint8List());
 
     pdf.addPage(
       pw.Page(
@@ -329,7 +340,7 @@ class PdfService {
         build: (context) => pw.Column(
           crossAxisAlignment: pw.CrossAxisAlignment.start,
           children: [
-            _buildHeader('REFERRAL LETTER', refId),
+            _buildHeader('REFERRAL LETTER', refId, logo),
             pw.SizedBox(height: 16),
 
             _sectionTitle('PATIENT DETAILS'),

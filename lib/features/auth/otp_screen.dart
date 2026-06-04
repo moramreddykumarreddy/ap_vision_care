@@ -118,10 +118,13 @@ class _OtpScreenState extends State<OtpScreen> {
                   const SizedBox(height: 20),
 
                   Container(
-                    width: 72,
-                    height: 72,
+                    width: 82,
+                    height: 82,
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
+                      color: Colors.white,
                       shape: BoxShape.circle,
+                      border: Border.all(color: const Color(0xFF81D4FA), width: 3),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.1),
@@ -132,9 +135,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     child: ClipOval(
                       child: Image.asset(
                         'assets/images/apvision.png',
-                        width: 72,
-                        height: 72,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ).animate().scale(begin: const Offset(0.5, 0.5)),

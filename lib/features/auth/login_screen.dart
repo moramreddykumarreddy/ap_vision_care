@@ -69,10 +69,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   Column(
                     children: [
                       Container(
-                        width: 80,
-                        height: 80,
+                        width: 90,
+                        height: 90,
+                        padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
+                          color: Colors.white,
                           shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0xFF81D4FA), width: 4),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.1),
@@ -83,9 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: ClipOval(
                           child: Image.asset(
                             'assets/images/apvision.png',
-                            width: 80,
-                            height: 80,
-                            fit: BoxFit.cover,
+                            fit: BoxFit.contain,
                           ),
                         ),
                       ),

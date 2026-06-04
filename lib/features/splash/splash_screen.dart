@@ -100,10 +100,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                             );
                           },
                           child: Container(
-                            width: 120,
-                            height: 120,
+                            width: 140,
+                            height: 140,
+                            padding: const EdgeInsets.all(12),
                             decoration: BoxDecoration(
+                              color: Colors.white,
                               shape: BoxShape.circle,
+                              border: Border.all(color: const Color(0xFF81D4FA), width: 6),
                               boxShadow: [
                                 BoxShadow(
                                   color: const Color(0xFF4D8AFF).withOpacity(0.3),
@@ -115,9 +118,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                             child: ClipOval(
                               child: Image.asset(
                                 'assets/images/apvision.png',
-                                width: 120,
-                                height: 120,
-                                fit: BoxFit.cover,
+                                fit: BoxFit.contain,
                               ),
                             ),
                           ),
