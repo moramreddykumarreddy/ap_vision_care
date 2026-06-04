@@ -45,7 +45,7 @@ class SuperAdminDashboard extends ConsumerWidget {
                 gradient: const LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [AppColors.primaryBlue, Color(0xFF2952A3)],
+                  colors: AppColors.heroGradient,
                 ),
                 borderRadius: BorderRadius.circular(20),
               ),

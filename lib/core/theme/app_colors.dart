@@ -1,74 +1,86 @@
 // lib/core/theme/app_colors.dart
 import 'package:flutter/material.dart';
 
+/// Official AP Vision Care brand palette.
+/// Blue #004990 · Red #e31b23 · Gray #6d6e71
 class AppColors {
-  // Primary brand colors - AP Government Deep Blue
-  static const Color primaryBlue = Color(0xFF004990);
-  static const Color primaryBlueDark = Color(0xFF003366);
-  static const Color primaryBlueLight = Color(0xFF336B9F);
+  AppColors._();
 
-  // Accent - Red
-  static const Color accent = Color(0xFFE31B23);
-  static const Color accentLight = Color(0xFFE84A50);
-  static const Color accentDark = Color(0xFFB5151C);
+  static const Color brandBlue = Color(0xFF004990);
+  static const Color brandRed = Color(0xFFE31B23);
+  static const Color brandGray = Color(0xFF6D6E71);
 
-  // AP Government Gold (Mapped to Brand Colors per theme request)
-  static const Color gold = primaryBlue;
-  static const Color goldLight = primaryBlueLight;
+  // Primary (brand blue)
+  static const Color primaryBlue = brandBlue;
+  static const Color primaryBlueDark = brandBlue;
+  static const Color primaryBlueLight = brandBlue;
 
-  // Status Colors
-  static const Color success = Color(0xFF2E7D32);
-  static const Color successLight = Color(0xFF4CAF50);
-  static const Color warning = Color(0xFFE65100);
-  static const Color warningLight = Color(0xFFFF9800);
-  static const Color error = Color(0xFFC62828);
-  static const Color errorLight = Color(0xFFF44336);
-  static const Color info = primaryBlue;
-  static const Color infoLight = primaryBlueLight;
-  static const Color clinical = primaryBlueDark;
+  // Accent / CTA (brand red — matches web Button primary)
+  static const Color accent = brandRed;
+  static const Color accentLight = brandRed;
+  static const Color accentDark = brandRed;
 
-  // Web Theme specific surfaces
-  static const Color primaryContainer = Color(0xFFE8F4FC);
-  static const Color accentSoft = Color(0xFFFFCDD2);
-  static const Color bgApp = Color(0xFFF0F7FA);
-  static const Color surfaceClinical = Color(0xFFF5F7FA);
-  static const Color surfaceMuted = Color(0xFFECEFF1);
+  static const Color gold = brandRed;
+  static const Color goldLight = brandRed;
 
-  // Neutral
+  // Semantic — aligned with web theme
+  static const Color success = brandBlue;
+  static const Color successLight = brandBlue;
+  static const Color warning = brandRed;
+  static const Color warningLight = brandRed;
+  static const Color error = brandRed;
+  static const Color errorLight = brandRed;
+  static const Color info = brandBlue;
+  static const Color infoLight = brandBlue;
+  static const Color clinical = brandBlue;
+
+  // Surfaces (color-mix equivalents with white)
+  static const Color primaryContainer = Color(0xFFE0E9F2); // 12% blue + white
+  static const Color accentSoft = Color(0xFFFCE8E9); // 10% red + white
+  static const Color bgApp = Color(0xFFF6F6F6); // 6% gray + white
+  static const Color surfaceClinical = Color(0xFFF4F4F4); // 8% gray + white
+  static const Color surfaceMuted = Color(0xFFF0F0F0); // 10% gray + white
+
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
-  static const Color grey50 = Color(0xFFFAFAFA);
-  static const Color grey100 = Color(0xFFF5F5F5);
-  static const Color grey200 = Color(0xFFEEEEEE);
-  static const Color grey300 = Color(0xFFE0E0E0);
-  static const Color grey400 = Color(0xFFBDBDBD);
-  static const Color grey500 = Color(0xFF9E9E9E);
-  static const Color grey600 = Color(0xFF757575);
-  static const Color grey700 = Color(0xFF616161);
-  static const Color grey800 = Color(0xFF424242);
-  static const Color grey900 = Color(0xFF212121);
 
-  // Dark theme surfaces
-  static const Color darkBackground = Color(0xFF0D1117);
-  static const Color darkSurface = Color(0xFF161B22);
-  static const Color darkCard = Color(0xFF1C2333);
-  static const Color darkBorder = Color(0xFF30363D);
+  static const Color grey50 = Color(0xFFF6F6F6);
+  static const Color grey100 = Color(0xFFF0F0F0);
+  static const Color grey200 = Color(0xFFE5E5E5);
+  static const Color grey300 = Color(0xFFD6D6D6);
+  static const Color grey400 = brandGray;
+  static const Color grey500 = brandGray;
+  static const Color grey600 = brandGray;
+  static const Color grey700 = brandGray;
+  static const Color grey800 = brandGray;
+  static const Color grey900 = brandGray;
 
-  // Role-based colors - unified to the primary brand deep blue
-  static const Color superAdminColor = primaryBlue;
-  static const Color nodalOfficerColor = primaryBlue;
-  static const Color screeningTeamColor = primaryBlue;
-  static const Color teleDocColor = primaryBlue;
-  static const Color vendorColor = primaryBlue;
-  static const Color patientColor = primaryBlue;
+  /// Login / splash / hero banners
+  static const List<Color> heroGradient = [brandBlue, brandBlue];
 
-  // Chart Colors (aligned with blue/red theme)
+  // Dark theme — derived from brand blue + gray
+  static const Color darkBackground = Color(0xFF001A33);
+  static const Color darkSurface = Color(0xFF002952);
+  static const Color darkCard = Color(0xFF003366);
+  static const Color darkBorder = Color(0xFF4A4B4E);
+
+  // Role colors — unified brand blue
+  static const Color superAdminColor = brandBlue;
+  static const Color nodalOfficerColor = brandBlue;
+  static const Color screeningTeamColor = brandBlue;
+  static const Color teleDocColor = brandBlue;
+  static const Color vendorColor = brandBlue;
+  static const Color patientColor = brandBlue;
+
+  /// Charts & category icons — rotate blue, red, gray only
   static const List<Color> chartColors = [
-    primaryBlue, // primary
-    accent, // accent (red)
-    clinical, // clinical
-    primaryBlueLight, // primary-light
-    accentDark, // accent-dark (red)
-    info, // info
+    brandBlue,
+    brandRed,
+    brandGray,
+    brandBlue,
+    brandRed,
+    brandGray,
   ];
+
+  static Color chartColorAt(int index) => chartColors[index % chartColors.length];
 }

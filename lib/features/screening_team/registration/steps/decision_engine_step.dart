@@ -64,7 +64,7 @@ class DecisionEngineStep extends ConsumerWidget {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(colors: [Color(0xFF1A3A6B), Color(0xFF2952A3)]),
+              gradient: const LinearGradient(colors: AppColors.heroGradient),
               borderRadius: BorderRadius.circular(16),
             ),
             child: const Column(

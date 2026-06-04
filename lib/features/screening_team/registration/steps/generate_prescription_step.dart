@@ -164,7 +164,7 @@ class GeneratePrescriptionStep extends ConsumerWidget {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: const BoxDecoration(
-                    gradient: LinearGradient(colors: [Color(0xFF1A3A6B), Color(0xFF2952A3)]),
+                    gradient: const LinearGradient(colors: AppColors.heroGradient),
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16)),
                   ),
                   child: const Row(

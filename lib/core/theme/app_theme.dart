@@ -117,8 +117,8 @@ class AppTheme {
     const ColorScheme colorScheme = ColorScheme.light(
       primary: AppColors.primaryBlue,
       onPrimary: AppColors.white,
-      primaryContainer: Color(0xFFD6E4FF),
-      onPrimaryContainer: AppColors.primaryBlueDark,
+      primaryContainer: AppColors.primaryContainer,
+      onPrimaryContainer: AppColors.primaryBlue,
       secondary: AppColors.accent,
       onSecondary: AppColors.white,
       secondaryContainer: AppColors.accentSoft,
@@ -284,20 +284,20 @@ class AppTheme {
 
   static ThemeData darkTheme({String fontFamily = 'Outfit', double sizeScale = 1.0}) {
     const ColorScheme colorScheme = ColorScheme.dark(
-      primary: Color(0xFF4D8AFF),
+      primary: AppColors.brandBlue,
       onPrimary: AppColors.white,
-      primaryContainer: Color(0xFF1A3A6B),
-      onPrimaryContainer: Color(0xFFD6E4FF),
-      secondary: Color(0xFF4DB6AC),
-      onSecondary: AppColors.darkBackground,
-      secondaryContainer: AppColors.accentDark,
-      onSecondaryContainer: Color(0xFFB2DFDB),
-      tertiary: AppColors.goldLight,
-      onTertiary: AppColors.darkBackground,
-      error: Color(0xFFCF6679),
+      primaryContainer: AppColors.darkCard,
+      onPrimaryContainer: AppColors.primaryContainer,
+      secondary: AppColors.brandRed,
+      onSecondary: AppColors.white,
+      secondaryContainer: AppColors.accentSoft,
+      onSecondaryContainer: AppColors.brandRed,
+      tertiary: AppColors.brandRed,
+      onTertiary: AppColors.white,
+      error: AppColors.brandRed,
       onError: AppColors.white,
       surface: AppColors.darkSurface,
-      onSurface: Color(0xFFE6EDF3),
+      onSurface: AppColors.white,
       surfaceContainerHighest: AppColors.darkCard,
       outline: AppColors.darkBorder,
     );
@@ -305,20 +305,20 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      textTheme: _buildTextTheme(const Color(0xFFE6EDF3), fontFamily, sizeScale),
+      textTheme: _buildTextTheme(AppColors.white, fontFamily, sizeScale),
       scaffoldBackgroundColor: AppColors.darkBackground,
       appBarTheme: AppBarTheme(
         elevation: 0,
         scrolledUnderElevation: 1,
         backgroundColor: AppColors.darkSurface,
-        foregroundColor: const Color(0xFFE6EDF3),
+        foregroundColor: AppColors.white,
         centerTitle: false,
         titleTextStyle: GoogleFonts.inter(
           fontSize: 20,
           fontWeight: FontWeight.w700,
-          color: const Color(0xFFE6EDF3),
+          color: AppColors.white,
         ),
-        iconTheme: const IconThemeData(color: Color(0xFFE6EDF3)),
+        iconTheme: const IconThemeData(color: AppColors.white),
       ),
       cardTheme: CardThemeData(
         elevation: 0,
@@ -331,7 +331,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF4D8AFF),
+          backgroundColor: AppColors.brandRed,
           foregroundColor: AppColors.white,
           minimumSize: const Size(double.infinity, 52),
           shape: RoundedRectangleBorder(
@@ -343,8 +343,8 @@ class AppTheme {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: const Color(0xFF4D8AFF),
-          side: const BorderSide(color: Color(0xFF4D8AFF), width: 1.5),
+          foregroundColor: AppColors.brandBlue,
+          side: const BorderSide(color: AppColors.brandBlue, width: 1.5),
           minimumSize: const Size(double.infinity, 52),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -365,30 +365,30 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: Color(0xFF4D8AFF), width: 2),
+          borderSide: const BorderSide(color: AppColors.brandBlue, width: 2),
         ),
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        labelStyle: GoogleFonts.inter(fontSize: 14, color: const Color(0xFF8B949E)),
-        hintStyle: GoogleFonts.inter(fontSize: 14, color: const Color(0xFF8B949E)),
+        labelStyle: GoogleFonts.inter(fontSize: 14, color: AppColors.brandGray),
+        hintStyle: GoogleFonts.inter(fontSize: 14, color: AppColors.brandGray),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: Color(0xFF4D8AFF),
-        unselectedItemColor: Color(0xFF8B949E),
+        selectedItemColor: AppColors.brandBlue,
+        unselectedItemColor: AppColors.brandGray,
         backgroundColor: AppColors.darkSurface,
         elevation: 8,
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: AppColors.darkSurface,
-        indicatorColor: const Color(0xFF4D8AFF).withOpacity(0.2),
+        indicatorColor: AppColors.brandBlue.withOpacity(0.2),
         iconTheme: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) {
-            return const IconThemeData(color: Color(0xFF4D8AFF));
+            return const IconThemeData(color: AppColors.brandBlue);
           }
-          return const IconThemeData(color: Color(0xFF8B949E));
+          return const IconThemeData(color: AppColors.brandGray);
         }),
       ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Color(0xFF4DB6AC),
+        backgroundColor: AppColors.brandRed,
         foregroundColor: AppColors.white,
         elevation: 4,
       ),
@@ -398,7 +398,7 @@ class AppTheme {
       ),
       checkboxTheme: CheckboxThemeData(
         fillColor: WidgetStateProperty.resolveWith((states) {
-          if (states.contains(WidgetState.selected)) return const Color(0xFF4D8AFF);
+          if (states.contains(WidgetState.selected)) return AppColors.brandBlue;
           return Colors.transparent;
         }),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),

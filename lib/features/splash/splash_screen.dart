@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
+import '../../core/theme/app_colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -45,16 +46,15 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFF0D2347),
-              Color(0xFF1A3A6B),
-              Color(0xFF0D2347),
+              AppColors.brandBlue,
+              AppColors.brandBlue,
+              AppColors.brandBlue,
             ],
             stops: [0.0, 0.5, 1.0],
           ),
         ),
         child: Stack(
           children: [
-            // Background decorative circles
             Positioned(
               top: -80,
               right: -80,
@@ -75,22 +75,19 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                 height: 350,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xFF00897B).withOpacity(0.06),
+                  color: AppColors.brandBlue.withOpacity(0.06),
                 ),
               ),
             ),
 
-            // Main content
             SafeArea(
               child: Column(
                 children: [
                   const Spacer(flex: 2),
 
-                  // Logo
                   Center(
                     child: Column(
                       children: [
-                        // Animated logo container
                         AnimatedBuilder(
                           animation: _pulseController,
                           builder: (context, child) {
@@ -106,7 +103,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                               shape: BoxShape.circle,
                               boxShadow: [
                                 BoxShadow(
-                                  color: const Color(0xFF4D8AFF).withOpacity(0.3),
+                                  color: AppColors.brandBlue.withOpacity(0.3),
                                   blurRadius: 35,
                                   spreadRadius: 3,
                                 ),
@@ -128,7 +125,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
                         const SizedBox(height: 28),
 
-                        // App Title
                         const Text(
                           'AP Vision Program',
                           style: TextStyle(
@@ -160,7 +156,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                         Text(
                           'దృష్టి సేవ | Vision Service',
                           style: TextStyle(
-                            color: const Color(0xFFD4A017).withOpacity(0.9),
+                            color: AppColors.brandRed.withOpacity(0.9),
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -173,7 +169,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
                   const Spacer(flex: 2),
 
-                  // Loading indicator
                   Column(
                     children: [
                       SizedBox(
@@ -183,7 +178,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                           child: LinearProgressIndicator(
                             backgroundColor: Colors.white.withOpacity(0.1),
                             valueColor: const AlwaysStoppedAnimation<Color>(
-                              Color(0xFF00897B),
+                              AppColors.brandRed,
                             ),
                             minHeight: 3,
                           ),

@@ -80,7 +80,7 @@ class PatientProfile extends ConsumerWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
-                          colors: [Color(0xFF1A3A6B), Color(0xFF2952A3)],
+                          colors: AppColors.heroGradient,
                         ),
                         borderRadius: BorderRadius.circular(20),
                       ),

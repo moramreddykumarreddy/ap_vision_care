@@ -33,7 +33,7 @@ class DistrictDashboard extends ConsumerWidget {
                 gradient: const LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Color(0xFF1A3A6B), Color(0xFF0D2347)],
+                  colors: AppColors.heroGradient,
                 ),
                 borderRadius: BorderRadius.circular(16),
               ),

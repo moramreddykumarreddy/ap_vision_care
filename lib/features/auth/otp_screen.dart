@@ -1,6 +1,7 @@
 // lib/features/auth/otp_screen.dart
 import 'dart:async';
 import 'package:flutter/material.dart';
+import '../../core/theme/app_colors.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
@@ -52,7 +53,7 @@ class _OtpScreenState extends State<OtpScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('OTP Verified successfully! Logging in...'),
-            backgroundColor: Color(0xFF00897B),
+            backgroundColor: AppColors.brandBlue,
             behavior: SnackBarBehavior.floating,
             duration: Duration(seconds: 1),
           ),
@@ -93,7 +94,7 @@ class _OtpScreenState extends State<OtpScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [Color(0xFF0D2347), Color(0xFF1A3A6B)],
+            colors: AppColors.heroGradient,
           ),
         ),
         child: SafeArea(

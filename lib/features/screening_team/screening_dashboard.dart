@@ -162,7 +162,7 @@ class _ActiveCampBanner extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          colors: [AppColors.screeningTeamColor, Color(0xFF00897B)],
+          colors: AppColors.heroGradient,
         ),
         borderRadius: BorderRadius.circular(16),
       ),
