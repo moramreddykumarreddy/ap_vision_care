@@ -121,7 +121,7 @@ class AppTheme {
       onPrimaryContainer: AppColors.primaryBlueDark,
       secondary: AppColors.accent,
       onSecondary: AppColors.white,
-      secondaryContainer: Color(0xFFB2DFDB),
+      secondaryContainer: AppColors.accentSoft,
       onSecondaryContainer: AppColors.accentDark,
       tertiary: AppColors.gold,
       onTertiary: AppColors.white,
@@ -137,7 +137,7 @@ class AppTheme {
       useMaterial3: true,
       colorScheme: colorScheme,
       textTheme: _buildTextTheme(AppColors.grey900, fontFamily, sizeScale),
-      scaffoldBackgroundColor: AppColors.grey50,
+      scaffoldBackgroundColor: AppColors.bgApp,
       appBarTheme: AppBarTheme(
         elevation: 0,
         scrolledUnderElevation: 1,
@@ -162,7 +162,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primaryBlue,
+          backgroundColor: AppColors.accent,
           foregroundColor: AppColors.white,
           minimumSize: const Size(double.infinity, 52),
           shape: RoundedRectangleBorder(
@@ -177,8 +177,8 @@ class AppTheme {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: AppColors.primaryBlue,
-          side: const BorderSide(color: AppColors.primaryBlue, width: 1.5),
+          foregroundColor: AppColors.accent,
+          side: const BorderSide(color: AppColors.accent, width: 1.5),
           minimumSize: const Size(double.infinity, 52),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
@@ -191,7 +191,7 @@ class AppTheme {
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          foregroundColor: AppColors.primaryBlue,
+          foregroundColor: AppColors.accent,
           textStyle: GoogleFonts.inter(
             fontSize: 14,
             fontWeight: FontWeight.w600,

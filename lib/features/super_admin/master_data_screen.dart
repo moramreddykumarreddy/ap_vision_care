@@ -27,7 +27,7 @@ class MasterDataScreen extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(Icons.add),
             label: const Text('Add New Master Record'),
-            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryBlue, minimumSize: const Size.fromHeight(48)),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent, minimumSize: const Size.fromHeight(48)),
           ),
         ],
       ),

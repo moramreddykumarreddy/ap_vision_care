@@ -14,10 +14,8 @@ class PatientSelectionScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final patients = ref
-        .watch(patientsProvider)
-        .where((p) => p.mobile == mobile || mobile.isEmpty)
-        .toList();
+    // Static demo: always show all dummy patients regardless of mobile number
+    final patients = ref.watch(patientsProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +44,7 @@ class PatientSelectionScreen extends ConsumerWidget {
               padding: const EdgeInsets.all(16),
               children: [
                 Text(
-                  'Patients registered with +91 $mobile',
+                  'AP Vision Care — Demo Patients',
                   style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
                 ),
                 const SizedBox(height: 4),

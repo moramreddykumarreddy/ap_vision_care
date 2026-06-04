@@ -388,16 +388,8 @@ class AppBarBackButton extends ConsumerWidget {
     final isMobile = MediaQuery.of(context).size.width <= 768;
     final isAdmin = path.startsWith('/admin/');
 
-    if (isAdmin && isMobile) {
-      return IconButton(
-        icon: Icon(Icons.menu, color: color ?? Colors.white),
-        onPressed: () {
-          ref.read(adminScaffoldKeyProvider).currentState?.openDrawer();
-        },
-      );
-    }
-
-    if (isAdmin && path == '/admin/dashboard') {
+    // Only show menu on screening path (previously admin)
+    if (isMobile && path == '/screening/dashboard') {
       return const SizedBox.shrink();
     }
 
@@ -408,11 +400,7 @@ class AppBarBackButton extends ConsumerWidget {
           Navigator.of(context).pop();
         } else {
           try {
-            if (path.startsWith('/admin/')) {
-              context.go('/admin/dashboard');
-            } else if (path.startsWith('/nodal/')) {
-              context.go('/nodal/dashboard');
-            } else if (path.startsWith('/tele/')) {
+            if (path.startsWith('/tele/')) {
               context.go('/tele/dashboard');
             } else if (path.startsWith('/vendor/')) {
               context.go('/vendor/dashboard');

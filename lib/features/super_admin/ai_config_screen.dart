@@ -70,7 +70,7 @@ class _AiConfigScreenState extends State<AiConfigScreen> {
                 const SnackBar(content: Text('AI configuration saved')),
               );
             },
-            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryBlue, minimumSize: const Size.fromHeight(48)),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent, minimumSize: const Size.fromHeight(48)),
             child: const Text('Save Configuration'),
           ),
         ],

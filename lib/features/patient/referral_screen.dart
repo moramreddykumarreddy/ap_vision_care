@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../core/widgets/common_widgets.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/services/pdf_service.dart';
 import '../../providers/app_providers.dart';
 
 class PatientReferralScreen extends ConsumerWidget {
@@ -11,7 +12,11 @@ class PatientReferralScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final referrals = ref.watch(referralsProvider);
+    final patient = ref.watch(selectedPatientProvider);
+    final allReferrals = ref.watch(referralsProvider);
+    final referrals = patient != null
+        ? allReferrals.where((r) => r.patientId == patient.id).toList()
+        : allReferrals;
     final theme = Theme.of(context);
 
     return Scaffold(
@@ -94,6 +99,36 @@ class PatientReferralScreen extends ConsumerWidget {
                             ),
                           ],
                         ),
+                        const SizedBox(height: 12),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: ElevatedButton.icon(
+                                onPressed: () => _downloadReferral(context, ref_),
+                                icon: const Icon(Icons.download_rounded, size: 15),
+                                label: const Text('Download Letter'),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: AppColors.accent,
+                                  foregroundColor: Colors.white,
+                                  padding: const EdgeInsets.symmetric(vertical: 10),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: OutlinedButton.icon(
+                                onPressed: () => _shareReferral(context, ref_),
+                                icon: const Icon(Icons.share_rounded, size: 15),
+                                label: const Text('Share'),
+                                style: OutlinedButton.styleFrom(
+                                  foregroundColor: AppColors.success,
+                                  side: const BorderSide(color: AppColors.success),
+                                  padding: const EdgeInsets.symmetric(vertical: 10),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -101,6 +136,63 @@ class PatientReferralScreen extends ConsumerWidget {
               },
             ),
     );
+  }
+  Future<void> _downloadReferral(BuildContext context, dynamic ref_) async {
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.showSnackBar(SnackBar(
+      content: Row(children: [
+        const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white)),
+        const SizedBox(width: 12),
+        const Text('Generating referral letter...'),
+      ]),
+      backgroundColor: AppColors.primaryBlue,
+      behavior: SnackBarBehavior.floating,
+      duration: const Duration(seconds: 3),
+    ));
+    try {
+      final bytes = await PdfService.generateReferralPdf(
+        refId: ref_.id,
+        patientName: ref_.patientName,
+        patientId: ref_.patientId,
+        hospital: ref_.hospital,
+        condition: ref_.condition,
+        priority: ref_.priority,
+        status: ref_.status,
+        date: ref_.date,
+        doctorName: ref_.doctorName,
+      );
+      await PdfService.previewPdf(bytes, 'Referral_${ref_.id}');
+    } catch (e) {
+      messenger.showSnackBar(SnackBar(
+        content: Text('Error: $e'),
+        backgroundColor: Colors.red,
+        behavior: SnackBarBehavior.floating,
+      ));
+    }
+  }
+
+  Future<void> _shareReferral(BuildContext context, dynamic ref_) async {
+    final messenger = ScaffoldMessenger.of(context);
+    try {
+      final bytes = await PdfService.generateReferralPdf(
+        refId: ref_.id,
+        patientName: ref_.patientName,
+        patientId: ref_.patientId,
+        hospital: ref_.hospital,
+        condition: ref_.condition,
+        priority: ref_.priority,
+        status: ref_.status,
+        date: ref_.date,
+        doctorName: ref_.doctorName,
+      );
+      await PdfService.sharePdf(bytes, 'Referral_${ref_.id}');
+    } catch (e) {
+      messenger.showSnackBar(SnackBar(
+        content: Text('Error: $e'),
+        backgroundColor: Colors.red,
+        behavior: SnackBarBehavior.floating,
+      ));
+    }
   }
 }
 

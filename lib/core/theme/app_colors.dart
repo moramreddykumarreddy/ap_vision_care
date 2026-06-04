@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // Primary brand colors - AP Government Deep Blue
-  static const Color primaryBlue = Color(0xFF1A3A6B);
-  static const Color primaryBlueDark = Color(0xFF0D2347);
-  static const Color primaryBlueLight = Color(0xFF2952A3);
+  static const Color primaryBlue = Color(0xFF004990);
+  static const Color primaryBlueDark = Color(0xFF003366);
+  static const Color primaryBlueLight = Color(0xFF336B9F);
 
-  // Accent - Teal
-  static const Color accent = Color(0xFF00897B);
-  static const Color accentLight = Color(0xFF4DB6AC);
-  static const Color accentDark = Color(0xFF00695C);
+  // Accent - Red
+  static const Color accent = Color(0xFFE31B23);
+  static const Color accentLight = Color(0xFFE84A50);
+  static const Color accentDark = Color(0xFFB5151C);
 
-  // AP Government Gold
-  static const Color gold = Color(0xFFD4A017);
-  static const Color goldLight = Color(0xFFFFD54F);
+  // AP Government Gold (Mapped to Brand Colors per theme request)
+  static const Color gold = primaryBlue;
+  static const Color goldLight = primaryBlueLight;
 
   // Status Colors
   static const Color success = Color(0xFF2E7D32);
@@ -23,8 +23,16 @@ class AppColors {
   static const Color warningLight = Color(0xFFFF9800);
   static const Color error = Color(0xFFC62828);
   static const Color errorLight = Color(0xFFF44336);
-  static const Color info = Color(0xFF01579B);
-  static const Color infoLight = Color(0xFF2196F3);
+  static const Color info = primaryBlue;
+  static const Color infoLight = primaryBlueLight;
+  static const Color clinical = primaryBlueDark;
+
+  // Web Theme specific surfaces
+  static const Color primaryContainer = Color(0xFFE8F4FC);
+  static const Color accentSoft = Color(0xFFFFCDD2);
+  static const Color bgApp = Color(0xFFF0F7FA);
+  static const Color surfaceClinical = Color(0xFFF5F7FA);
+  static const Color surfaceMuted = Color(0xFFECEFF1);
 
   // Neutral
   static const Color white = Color(0xFFFFFFFF);
@@ -54,15 +62,13 @@ class AppColors {
   static const Color vendorColor = primaryBlue;
   static const Color patientColor = primaryBlue;
 
-  // Chart Colors
+  // Chart Colors (aligned with blue/red theme)
   static const List<Color> chartColors = [
-    Color(0xFF1A3A6B),
-    Color(0xFF00897B),
-    Color(0xFFD4A017),
-    Color(0xFFE65100),
-    Color(0xFF6A1B9A),
-    Color(0xFF0277BD),
-    Color(0xFF2E7D32),
-    Color(0xFFC62828),
+    primaryBlue, // primary
+    accent, // accent (red)
+    clinical, // clinical
+    primaryBlueLight, // primary-light
+    accentDark, // accent-dark (red)
+    info, // info
   ];
 }

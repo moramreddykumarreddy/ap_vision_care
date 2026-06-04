@@ -64,7 +64,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
         if (role == 'patient') {
           context.go('/select-patient?mobile=$mobile');
-        } else if (role == 'nodal_officer' || role == 'screening_team') {
+        } else if (role == 'screening_team') {
           context.go('/select-location?role=$role&route=$encodedRoute');
         } else {
           context.go(route.isNotEmpty ? route : '/role-selection');

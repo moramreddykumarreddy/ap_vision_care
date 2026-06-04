@@ -24,22 +24,6 @@ class RoleItem {
 
 const _roles = [
   RoleItem(
-    id: 'super_admin',
-    title: 'Super Admin',
-    subtitle: 'State-level administration & analytics',
-    icon: Icons.admin_panel_settings,
-    color: AppColors.primaryBlue,
-    route: '/admin/dashboard',
-  ),
-  RoleItem(
-    id: 'nodal_officer',
-    title: 'Nodal Officer',
-    subtitle: 'District oversight & approvals',
-    icon: Icons.manage_accounts,
-    color: AppColors.primaryBlue,
-    route: '/nodal/dashboard',
-  ),
-  RoleItem(
     id: 'screening_team',
     title: 'Screening Team',
     subtitle: 'Camp management & patient screening',

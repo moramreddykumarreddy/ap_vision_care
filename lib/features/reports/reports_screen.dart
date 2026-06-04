@@ -42,7 +42,7 @@ class ReportsScreen extends StatelessWidget {
                     onPressed: () {},
                     icon: const Icon(Icons.auto_awesome, size: 18),
                     label: const Text('Generate Custom Report'),
-                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryBlue),
+                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.accent),
                   ),
                 ),
                 const SizedBox(width: 10),
