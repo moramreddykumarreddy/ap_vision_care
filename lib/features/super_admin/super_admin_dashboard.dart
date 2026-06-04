@@ -71,6 +71,27 @@ class SuperAdminDashboard extends ConsumerWidget {
 
             const SizedBox(height: 20),
 
+            SectionHeader(title: 'Daily Dashboard'),
+            const SizedBox(height: 12),
+            GridView.count(
+              crossAxisCount: 2,
+              crossAxisSpacing: 12,
+              mainAxisSpacing: 12,
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              childAspectRatio: 1.35,
+              children: const [
+                StatCard(title: 'Registered Today', value: '842', icon: Icons.person_add_rounded, color: AppColors.primaryBlue),
+                StatCard(title: 'Screened Today', value: '796', icon: Icons.remove_red_eye_rounded, color: AppColors.success),
+                StatCard(title: 'Spectacles Required', value: '312', icon: Icons.visibility_rounded, color: AppColors.warning),
+                StatCard(title: 'Spectacles Delivered', value: '248', icon: Icons.local_shipping_rounded, color: AppColors.success),
+                StatCard(title: 'Referrals Today', value: '18', icon: Icons.local_hospital_rounded, color: AppColors.error),
+                StatCard(title: 'Teleconsults Today', value: '24', icon: Icons.video_call_rounded, color: AppColors.teleDocColor),
+              ],
+            ),
+
+            const SizedBox(height: 24),
+
             GridView.count(
               crossAxisCount: 2,
               crossAxisSpacing: 12,

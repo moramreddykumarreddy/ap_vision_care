@@ -14,9 +14,14 @@ class PatientDashboard extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final prescriptions = ref.watch(prescriptionsProvider);
-    final referrals = ref.watch(referralsProvider);
-    final teleconsultations = ref.watch(teleconsultationsProvider);
+    final patient = ref.watch(selectedPatientProvider) ??
+        ref.watch(patientsProvider).firstWhere(
+              (p) => p.id == 'P001',
+              orElse: () => ref.watch(patientsProvider).first,
+            );
+    final prescriptions = ref.watch(prescriptionsProvider).where((p) => p.patientId == patient.id).toList();
+    final referrals = ref.watch(referralsProvider).where((r) => r.patientId == patient.id).toList();
+    final teleconsultations = ref.watch(teleconsultationsProvider).where((t) => t.patientId == patient.id).toList();
     final notifications = ref.watch(notificationsProvider);
     final unreadCount = notifications.where((n) => !n.isRead).length;
 
@@ -27,7 +32,7 @@ class PatientDashboard extends ConsumerWidget {
           children: [
             const Text('AP Vision Care', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
             Text(
-              'Good morning, Ravi Kumar',
+              'Good morning, ${patient.name.split(' ').first}',
               style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,

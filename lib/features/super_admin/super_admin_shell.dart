@@ -185,6 +185,8 @@ const _menuItems = [
   _MenuItem(Icons.dashboard_rounded, 'Dashboard', '/admin/dashboard'),
   _MenuItem(Icons.bar_chart_rounded, 'State Analytics', '/admin/analytics/state'),
   _MenuItem(Icons.map_rounded, 'District View', '/admin/analytics/district'),
+  _MenuItem(Icons.place_rounded, 'Mandal View', '/admin/analytics/mandal'),
+  _MenuItem(Icons.diversity_3_rounded, 'Demographics', '/admin/analytics/demographics'),
   _MenuItem(Icons.auto_awesome_rounded, 'AI Analytics', '/admin/analytics/ai'),
   _MenuItem(Icons.restaurant_rounded, 'Nutrition', '/admin/analytics/nutrition'),
   _MenuItem(Icons.school_rounded, 'School Vision', '/admin/analytics/school'),
@@ -193,6 +195,9 @@ const _menuItems = [
   _MenuItem(Icons.timeline_rounded, 'EMR', '/admin/emr'),
   _MenuItem(Icons.folder_open_rounded, 'Documents', '/admin/documents'),
   _MenuItem(Icons.local_hospital_rounded, 'Referrals', '/admin/referrals'),
+  _MenuItem(Icons.storage_rounded, 'Master Data', '/admin/master-data'),
+  _MenuItem(Icons.history_rounded, 'Audit Logs', '/admin/audit'),
+  _MenuItem(Icons.smart_toy_rounded, 'AI Config', '/admin/ai-config'),
   _MenuItem(Icons.summarize_rounded, 'Reports', '/admin/reports'),
   _MenuItem(Icons.settings_rounded, 'Settings', '/admin/settings'),
 ];

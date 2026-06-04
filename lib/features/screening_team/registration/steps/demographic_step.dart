@@ -22,6 +22,9 @@ class DemographicStep extends StatelessWidget {
           _StepTitle('Demographic Information', 'Socio-economic background details', Icons.people_outline),
           const SizedBox(height: 20),
 
+          _DropdownField('Marital Status', ['Single', 'Married', 'Widowed', 'Divorced', 'Separated']),
+          const SizedBox(height: 14),
+
           _DropdownField('Education Level', [
             'Illiterate',
             'Primary School (1-5)',

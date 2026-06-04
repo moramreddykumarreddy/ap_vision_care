@@ -6,6 +6,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../features/splash/splash_screen.dart';
 import '../../features/auth/login_screen.dart';
 import '../../features/auth/otp_screen.dart';
+import '../../features/auth/location_selection_screen.dart';
+import '../../features/auth/patient_selection_screen.dart';
 import '../../features/auth/role_selection_screen.dart';
 
 import '../../features/patient/patient_shell.dart';
@@ -51,6 +53,11 @@ import '../../features/emr/document_management.dart';
 import '../../features/referral/referral_management.dart';
 import '../../features/reports/reports_screen.dart';
 import '../../features/settings/settings_screen.dart';
+import '../../features/analytics/mandal_dashboard.dart';
+import '../../features/analytics/demographic_analytics.dart';
+import '../../features/super_admin/master_data_screen.dart';
+import '../../features/super_admin/audit_logs_screen.dart';
+import '../../features/super_admin/ai_config_screen.dart';
 import '../../features/super_admin/super_admin_shell.dart';
 import '../../features/super_admin/super_admin_dashboard.dart';
 
@@ -70,6 +77,24 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) {
           final mobile = state.uri.queryParameters['mobile'] ?? '';
           return OtpScreen(mobile: mobile);
+        },
+      ),
+      GoRoute(
+        path: '/select-location',
+        builder: (context, state) {
+          final role = state.uri.queryParameters['role'] ?? '';
+          final route = state.uri.queryParameters['route'] ?? '/role-selection';
+          return LocationSelectionScreen(
+            role: role,
+            destinationRoute: Uri.decodeComponent(route),
+          );
+        },
+      ),
+      GoRoute(
+        path: '/select-patient',
+        builder: (context, state) {
+          final mobile = state.uri.queryParameters['mobile'] ?? '';
+          return PatientSelectionScreen(mobile: mobile);
         },
       ),
       GoRoute(path: '/role-selection', builder: (_, __) => const RoleSelectionScreen()),
@@ -147,6 +172,8 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/admin/dashboard', builder: (_, __) => const SuperAdminDashboard()),
           GoRoute(path: '/admin/analytics/state', builder: (_, __) => const StateAnalyticsDashboard()),
           GoRoute(path: '/admin/analytics/district', builder: (_, __) => const DistrictDashboard()),
+          GoRoute(path: '/admin/analytics/mandal', builder: (_, __) => const MandalDashboard()),
+          GoRoute(path: '/admin/analytics/demographics', builder: (_, __) => const DemographicAnalytics()),
           GoRoute(path: '/admin/analytics/ai', builder: (_, __) => const AiAnalyticsDashboard()),
           GoRoute(path: '/admin/analytics/nutrition', builder: (_, __) => const NutritionAnalytics()),
           GoRoute(path: '/admin/analytics/school', builder: (_, __) => const SchoolVisionDashboard()),
@@ -155,6 +182,9 @@ final appRouterProvider = Provider<GoRouter>((ref) {
           GoRoute(path: '/admin/emr', builder: (_, __) => const EmrTimeline()),
           GoRoute(path: '/admin/documents', builder: (_, __) => const DocumentManagementScreen()),
           GoRoute(path: '/admin/referrals', builder: (_, __) => const ReferralManagement()),
+          GoRoute(path: '/admin/master-data', builder: (_, __) => const MasterDataScreen()),
+          GoRoute(path: '/admin/audit', builder: (_, __) => const AuditLogsScreen()),
+          GoRoute(path: '/admin/ai-config', builder: (_, __) => const AiConfigScreen()),
           GoRoute(path: '/admin/reports', builder: (_, __) => const ReportsScreen()),
           GoRoute(path: '/admin/settings', builder: (_, __) => const SettingsScreen()),
         ],

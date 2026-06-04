@@ -16,14 +16,16 @@ class SymptomsStep extends ConsumerWidget {
   static const _symptoms = [
     ('Diminished Vision', Icons.visibility_off_rounded),
     ('Redness', Icons.bloodtype_rounded),
-    ('Pain in Eye', Icons.sentiment_very_dissatisfied_rounded),
+    ('Pain / Discomfort', Icons.sentiment_very_dissatisfied_rounded),
     ('Blurred Vision', Icons.blur_on_rounded),
     ('Photophobia (Light Sensitivity)', Icons.wb_sunny_rounded),
-    ('Floaters', Icons.grain_rounded),
+    ('Floaters / Flashes', Icons.grain_rounded),
+    ('Distortion / Metamorphopsia', Icons.grid_off_rounded),
+    ('Diplopia (Double Vision)', Icons.filter_none_rounded),
     ('Headache', Icons.psychology_alt_rounded),
     ('Watering of Eyes', Icons.water_drop_rounded),
+    ('Eye Pain / Eye Strain', Icons.remove_red_eye_outlined),
     ('Reading Difficulty', Icons.menu_book_rounded),
-    ('Double Vision', Icons.filter_none_rounded),
     ('Eye Discharge', Icons.opacity_rounded),
     ('Itching', Icons.pest_control_rounded),
   ];
@@ -133,7 +135,7 @@ class SymptomsStep extends ConsumerWidget {
           TextFormField(
             maxLines: 3,
             decoration: const InputDecoration(
-              hintText: 'Any additional symptoms or observations...',
+              hintText: 'Other symptoms to be recorded...',
             ),
           ),
         ],

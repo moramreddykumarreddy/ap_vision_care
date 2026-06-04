@@ -28,6 +28,16 @@ class MedicalHistoryStep extends ConsumerWidget {
     ('HIV/AIDS', Icons.health_and_safety_rounded, Color(0xFFB71C1C)),
   ];
 
+  static const _ocularConditions = [
+    ('Refractive Error', Icons.visibility_outlined, Color(0xFF1565C0)),
+    ('Cataract', Icons.lens_outlined, Color(0xFF6A1B9A)),
+    ('Glaucoma', Icons.remove_red_eye_outlined, Color(0xFF00838F)),
+    ('Ocular Trauma', Icons.healing_outlined, Color(0xFFC62828)),
+    ('Eye Surgery', Icons.medical_services_outlined, Color(0xFF4527A0)),
+    ('Contact Lens Use', Icons.circle_outlined, Color(0xFF0277BD)),
+    ('Prosthesis / Conformer Use', Icons.accessibility_new_outlined, Color(0xFF37474F)),
+  ];
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
@@ -98,6 +108,46 @@ class MedicalHistoryStep extends ConsumerWidget {
                     ],
                   ),
                 ),
+              ),
+            );
+          }),
+
+          const SizedBox(height: 16),
+          Text('Disease Duration & Treatment', style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.w700)),
+          const SizedBox(height: 8),
+          _DropdownField('Duration of Disease', ['Less than 1 year', '1-5 years', 'More than 5 years', 'Not Applicable']),
+          const SizedBox(height: 14),
+          _DropdownField('Current Treatment', ['Regular', 'Irregular', 'Not Taking Treatment', 'Not Applicable']),
+
+          const SizedBox(height: 20),
+          Text('Ocular & Eye History', style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700)),
+          const SizedBox(height: 8),
+          ...List.generate(_ocularConditions.length, (i) {
+            final (label, icon, color) = _ocularConditions[i];
+            final isSelected = ref.watch(selectedOcularHistoryProvider).contains(label);
+            return Container(
+              margin: const EdgeInsets.only(bottom: 10),
+              decoration: BoxDecoration(
+                color: isSelected ? color.withOpacity(0.06) : theme.colorScheme.surfaceContainerHighest,
+                border: Border.all(
+                  color: isSelected ? color.withOpacity(0.4) : theme.colorScheme.outline.withOpacity(0.2),
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: CheckboxListTile(
+                value: isSelected,
+                onChanged: (_) {
+                  final next = Set<String>.from(ref.read(selectedOcularHistoryProvider));
+                  if (isSelected) {
+                    next.remove(label);
+                  } else {
+                    next.add(label);
+                  }
+                  ref.read(selectedOcularHistoryProvider.notifier).state = next;
+                },
+                title: Text(label, style: const TextStyle(fontSize: 13)),
+                secondary: Icon(icon, color: color, size: 20),
+                controlAffinity: ListTileControlAffinity.leading,
               ),
             );
           }),

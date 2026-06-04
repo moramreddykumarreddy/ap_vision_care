@@ -9,7 +9,9 @@ class PatientShell extends StatelessWidget {
   static const _tabs = [
     (icon: Icons.home_rounded, label: 'Home', path: '/patient/dashboard'),
     (icon: Icons.description_rounded, label: 'Prescriptions', path: '/patient/prescriptions'),
+    (icon: Icons.visibility_rounded, label: 'Spectacles', path: '/patient/spectacles'),
     (icon: Icons.local_hospital_rounded, label: 'Referrals', path: '/patient/referrals'),
+    (icon: Icons.video_call_rounded, label: 'Tele', path: '/patient/teleconsultation'),
     (icon: Icons.person_rounded, label: 'Profile', path: '/patient/profile'),
   ];
 

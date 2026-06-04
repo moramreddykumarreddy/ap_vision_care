@@ -10,6 +10,9 @@ import 'steps/demographic_step.dart';
 import 'steps/symptoms_step.dart';
 import 'steps/medical_history_step.dart';
 import 'steps/family_history_step.dart';
+import 'steps/lifestyle_diet_step.dart';
+import 'steps/risk_profile_step.dart';
+import 'steps/population_health_step.dart';
 import 'steps/existing_spectacles_step.dart';
 import 'steps/vision_examination_step.dart';
 import 'steps/refraction_step.dart';
@@ -35,6 +38,9 @@ class _RegistrationFlowState extends ConsumerState<RegistrationFlow> {
     _StepInfo('Symptoms', Icons.sick_outlined),
     _StepInfo('Medical Hx', Icons.medical_information_outlined),
     _StepInfo('Family Hx', Icons.family_restroom_outlined),
+    _StepInfo('Lifestyle', Icons.restaurant_outlined),
+    _StepInfo('Risk Profile', Icons.warning_amber_outlined),
+    _StepInfo('Pop. Health', Icons.health_and_safety_outlined),
     _StepInfo('Spectacles', Icons.visibility_outlined),
     _StepInfo('Vision Exam', Icons.remove_red_eye_outlined),
     _StepInfo('Refraction', Icons.tune_outlined),
@@ -118,6 +124,9 @@ class _RegistrationFlowState extends ConsumerState<RegistrationFlow> {
                   SymptomsStep(),
                   MedicalHistoryStep(),
                   FamilyHistoryStep(),
+                  LifestyleDietStep(),
+                  RiskProfileStep(),
+                  PopulationHealthStep(),
                   ExistingSpectaclesStep(),
                   VisionExaminationStep(),
                   RefractionStep(),
@@ -265,7 +274,7 @@ class _StepNavigation extends StatelessWidget {
               onPressed: onNext,
               icon: Icon(isLast ? Icons.check : Icons.arrow_forward, size: 16),
               label: Text(
-                isLast ? 'Generate Prescription' : 'Next',
+                isLast ? 'Submit for Approval' : 'Next',
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600),

@@ -111,12 +111,33 @@ final notificationsProvider = StateProvider<List<NotificationModel>>((ref) {
   return DummyData.notifications;
 });
 
+// ─── Session & Patient Selection ─────────────────────────────────────────
+typedef SessionLocation = ({String district, String mandal, String? village});
+
+final sessionLocationProvider = StateProvider<SessionLocation?>((ref) => null);
+final selectedPatientProvider = StateProvider<PatientModel?>((ref) => null);
+
 // ─── Screening Registration Provider ──────────────────────────────────────
 final registrationStepProvider = StateProvider<int>((ref) => 0);
 
 final selectedSymptomsProvider = StateProvider<Set<String>>((ref) => {});
 final selectedMedicalHistoryProvider = StateProvider<Set<String>>((ref) => {});
+final selectedOcularHistoryProvider = StateProvider<Set<String>>((ref) => {});
 final selectedFamilyHistoryProvider = StateProvider<Set<String>>((ref) => {});
+
+enum DecisionOutcome {
+  normal,
+  existingGlassesAdequate,
+  spectaclesRequired,
+  referralRequired,
+  teleconsultationRequired,
+}
+
+final decisionOutcomeProvider = StateProvider<DecisionOutcome>(
+  (ref) => DecisionOutcome.spectaclesRequired,
+);
+
+final selectedOccupationalExposureProvider = StateProvider<Set<String>>((ref) => {});
 
 // ─── Camp Provider ─────────────────────────────────────────────────────────
 final activeCampProvider = StateProvider<CampModel?>((ref) {

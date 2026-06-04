@@ -222,19 +222,30 @@ class CampManagement extends ConsumerWidget {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text('Create New Camp'),
-        content: const Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(decoration: InputDecoration(labelText: 'Camp Name', prefixIcon: Icon(Icons.holiday_village))),
-            SizedBox(height: 12),
-            TextField(decoration: InputDecoration(labelText: 'District', prefixIcon: Icon(Icons.map))),
-            SizedBox(height: 12),
-            TextField(decoration: InputDecoration(labelText: 'Mandal', prefixIcon: Icon(Icons.location_on))),
-            SizedBox(height: 12),
-            TextField(decoration: InputDecoration(labelText: 'Village / Habitation', prefixIcon: Icon(Icons.cottage))),
-            SizedBox(height: 12),
-            TextField(decoration: InputDecoration(labelText: 'Scheduled Date', prefixIcon: Icon(Icons.calendar_today))),
-          ],
+        content: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              DropdownButtonFormField<String>(
+                decoration: const InputDecoration(labelText: 'Camp Type', prefixIcon: Icon(Icons.category_outlined)),
+                items: const [
+                  'Village', 'Tribal Area', 'Urban Slum', 'Semi-Urban', 'School',
+                  'Government Institution', 'Industrial Area',
+                ].map((t) => DropdownMenuItem(value: t, child: Text(t))).toList(),
+                onChanged: (_) {},
+              ),
+              const SizedBox(height: 12),
+              const TextField(decoration: InputDecoration(labelText: 'Camp Name', prefixIcon: Icon(Icons.holiday_village))),
+              const SizedBox(height: 12),
+              const TextField(decoration: InputDecoration(labelText: 'District', prefixIcon: Icon(Icons.map))),
+              const SizedBox(height: 12),
+              const TextField(decoration: InputDecoration(labelText: 'Mandal', prefixIcon: Icon(Icons.location_on))),
+              const SizedBox(height: 12),
+              const TextField(decoration: InputDecoration(labelText: 'Village / Habitation', prefixIcon: Icon(Icons.cottage))),
+              const SizedBox(height: 12),
+              const TextField(decoration: InputDecoration(labelText: 'Scheduled Date', prefixIcon: Icon(Icons.calendar_today))),
+            ],
+          ),
         ),
         actions: [
           TextButton(onPressed: () => Navigator.pop(context), child: const Text('Cancel')),
